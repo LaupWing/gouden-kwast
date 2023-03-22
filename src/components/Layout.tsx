@@ -8,19 +8,19 @@ const temp_links = [
       name: "Home"
    },
    {
-      to: "/",
+      to: "/onze-diensten",
       name: "Onze diensten"
    },
    {
-      to: "/",
+      to: "/portfolio",
       name: "Portfolio"
    },
    {
-      to: "/",
+      to: "/vacatures",
       name: "Vactures"
    },
    {
-      to: "/",
+      to: "/contact",
       name: "Contact"
    },
 ]
@@ -49,13 +49,14 @@ const Header = () => {
             <ul className="uppercase text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
                {temp_links.map(link => (
                   <Link 
-                     className="px-4 py-6 flex"
+                     className="px-4 py-6 flex tracking-wider"
                      to={link.to}
+                     activeClassName="bg-black/10"
                   >
                      { link.name }
                   </Link>
                ))}
-               <div className="bg-indigo-400 flex items-center justify-center px-10 text-white">
+               <div className="bg-indigo-400 tracking-wide flex items-center justify-center px-10 text-white">
                   Bel: 061234567
                </div>
             </ul>
