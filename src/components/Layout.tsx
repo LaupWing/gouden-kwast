@@ -29,7 +29,7 @@ const Layout:React.FC<React.PropsWithChildren> = ({
    children
 }) =>{
    return (
-      <div className="w-screen h-screen flex flex-col">
+      <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
          <Header />
          {children}
       </div>
