@@ -1,10 +1,13 @@
 import type { HeadFC, PageProps } from "gatsby"
 import * as React from "react"
+import Layout from "../components/Layout"
 
 const IndexPage: React.FC<PageProps> = () => {
    return (
-      <main className="w-screen h-screen bg-red-200">
-      </main>
+      <Layout>
+         <main className="">
+         </main>
+      </Layout>
    )
 }
 
