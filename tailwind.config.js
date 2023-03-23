@@ -9,7 +9,11 @@ module.exports = {
          sans: ["Poppins", "sans-serif"],
          display: ["Playfair Display", "sans-serif"],
       },
-      extend: {},
+      extend: {
+         spacing: {
+            nav: "var(--height-nav)"
+         }
+      },
    },
    plugins: [],
 }
