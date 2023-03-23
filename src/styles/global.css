@@ -2,3 +2,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+   --height-nav: 3rem;
+
+   @media (min-width: 32em) {
+      --height-nav: 4rem;
+   }
+
+   @media (min-width: 48em) {
+      --height-nav: 6rem;
+   }
+}
