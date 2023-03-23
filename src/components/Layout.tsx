@@ -40,7 +40,7 @@ export default Layout
 
 const Header = () => {
    return (
-      <header className="w-full sticky top-0 bg-white">
+      <header className="w-full sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
             <div className="w-44 h-28 bg-slate-600 text-yellow-400 flex flex-col items-center justify-center absolute top-0 left-0">
                <HiPaintBrush size={30} />
