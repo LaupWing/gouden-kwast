@@ -4,7 +4,8 @@ interface FormData {
    email: string
    name: string
    phonenumber: number
-   
+   postal_code: string
+   message?: string
 }
 
 const RequestForm = () => {
