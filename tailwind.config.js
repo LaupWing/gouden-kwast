@@ -12,6 +12,9 @@ module.exports = {
       extend: {
          spacing: {
             nav: "var(--height-nav)"
+         },
+         height: {
+            "minus-nav": "calc(100vh - var(--height-nav))"
          }
       },
    },
