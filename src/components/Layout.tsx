@@ -46,10 +46,10 @@ const Header = () => {
                <HiPaintBrush size={30} />
                <h1 className="flex flex-col font-display items-center leading-4"><span>Gouden</span>  <span>Kwast</span></h1>
             </div>
-            <ul className="uppercase text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
+            <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
                {temp_links.map(link => (
                   <Link 
-                     className="px-4 flex tracking-wider"
+                     className="px-4 flex items-center tracking-wider"
                      to={link.to}
                      activeClassName="bg-black/10"
                   >
