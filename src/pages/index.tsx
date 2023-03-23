@@ -11,7 +11,7 @@ const IndexPage: React.FC<PageProps> = () => {
          <main className="flex-1">
             <Hero />
             <Quotes />
-            <div className="bg-red-400">
+            <div className="bg-slate-200">
                <RequestForm />
             </div>
          </main>
