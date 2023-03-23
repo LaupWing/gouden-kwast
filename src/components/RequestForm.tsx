@@ -1,5 +1,12 @@
 import * as React from "react"
 
+interface FormData {
+   email: string
+   name: string
+   phonenumber: number
+   
+}
+
 const RequestForm = () => {
    return (
       <form className="text-slate-700 flex flex-col w-full max-w-xl p-2">
