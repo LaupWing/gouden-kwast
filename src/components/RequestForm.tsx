@@ -30,15 +30,14 @@ const RequestForm = () => {
                   message="Naam is verplicht!" 
                   errors={errors}
                />
-               <div className="flex flex-col">
-                  <input 
-                     className="bg-white border-gray-300 rounded-[3px]" 
-                     type="email" 
-                     placeholder="Jouw email" 
-                     {...register("email", { required: "Email is verplicht!"})}
-                  />
-                  {errors["email"] && <p className="text-red-400 uppercase text-xs font-bold px-1 py-0.5">{errors["email"].message}</p>}
-               </div>
+               <InputWithError 
+                  name="email" 
+                  placeholder="Jouw email"
+                  register={register} 
+                  message="Email is verplicht!" 
+                  type="email"
+                  errors={errors}
+               />
             </div>
             <div className="grid grid-cols-2 gap-4 col-span-2 items-start">
                <input 
@@ -47,15 +46,13 @@ const RequestForm = () => {
                   placeholder="Telefoon nummer"
                   {...register("phonenumber")}
                />
-               <div className="flex flex-col">
-                  <input 
-                     className="bg-white border-gray-300 rounded-[3px]" 
-                     type="text" 
-                     placeholder="Postcode" 
-                     {...register("postal_code", { required: "Postcode is verplicht!"})}
-                  />
-                  {errors["postal_code"] && <p className="text-red-400 uppercase text-xs font-bold px-1 py-0.5">{errors["postal_code"].message}</p>}
-               </div>
+               <InputWithError 
+                  name="postal_code" 
+                  placeholder="Postcode"
+                  register={register} 
+                  message="Postcode is verplicht!" 
+                  errors={errors}
+               />
             </div>
             <textarea 
                name="message" 
@@ -77,18 +74,20 @@ const InputWithError = ({
    register,
    name,
    message,
-   placeholder
+   placeholder,
+   type = "text"
 }:{
    errors: FieldErrors<FormData>
    register: UseFormRegister<FormData>
    name: keyof FormData
    message: string
    placeholder: string
+   type?: string
 }) =>{
    return (<div className="flex flex-col">
       <input 
          className="bg-white border-gray-300 rounded-[3px]" 
-         type="text" 
+         type={type} 
          placeholder={placeholder}
          {...register(name, { required: message})}
       />
