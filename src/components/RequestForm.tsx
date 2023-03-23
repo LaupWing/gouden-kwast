@@ -1,3 +1,4 @@
+import type { FieldErrors, UseFormRegister } from "react-hook-form"
 import * as React from "react"
 import { useForm } from "react-hook-form"
 
@@ -22,15 +23,12 @@ const RequestForm = () => {
          <h2 className="text-2xl mb-4">Gratis adviesgesprek?</h2>
          <div className="grid grid-cols-2 gap-4">
             <div className="grid grid-cols-2 gap-4 col-span-2 items-start">
-               <div className="flex flex-col">
-                  <input 
-                     className="bg-white border-gray-300 rounded-[3px]" 
-                     type="text" 
-                     placeholder="Jouw naam"
-                     {...register("name", { required: "Naam is verplicht!"})}
-                  />
-                  {errors["name"] && <p className="text-red-400 uppercase text-xs font-bold px-1 py-0.5">{errors["name"].message}</p>}
-               </div>
+               <InputWithError 
+                  name="name" 
+                  register={register} 
+                  message="Naam is verplicht!" 
+                  errors={errors}
+               />
                <div className="flex flex-col">
                   <input 
                      className="bg-white border-gray-300 rounded-[3px]" 
@@ -71,3 +69,26 @@ const RequestForm = () => {
    )
 }
 export default RequestForm
+
+
+const InputWithError = ({
+   errors,
+   register,
+   name,
+   message
+}:{
+   errors: FieldErrors<FormData>
+   register: UseFormRegister<FormData>
+   name: keyof FormData
+   message: string
+}) =>{
+   return (<div className="flex flex-col">
+      <input 
+         className="bg-white border-gray-300 rounded-[3px]" 
+         type="text" 
+         placeholder="Jouw naam"
+         {...register(name, { required: message})}
+      />
+      {errors[name] && <p className="text-red-400 uppercase text-xs font-bold px-1 py-0.5">{errors[name]?.message}</p>}
+   </div>)
+}
