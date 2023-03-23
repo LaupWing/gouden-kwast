@@ -25,6 +25,7 @@ const RequestForm = () => {
             <div className="grid grid-cols-2 gap-4 col-span-2 items-start">
                <InputWithError 
                   name="name" 
+                  placeholder="Jouw naam"
                   register={register} 
                   message="Naam is verplicht!" 
                   errors={errors}
@@ -75,18 +76,20 @@ const InputWithError = ({
    errors,
    register,
    name,
-   message
+   message,
+   placeholder
 }:{
    errors: FieldErrors<FormData>
    register: UseFormRegister<FormData>
    name: keyof FormData
    message: string
+   placeholder: string
 }) =>{
    return (<div className="flex flex-col">
       <input 
          className="bg-white border-gray-300 rounded-[3px]" 
          type="text" 
-         placeholder="Jouw naam"
+         placeholder={placeholder}
          {...register(name, { required: message})}
       />
       {errors[name] && <p className="text-red-400 uppercase text-xs font-bold px-1 py-0.5">{errors[name]?.message}</p>}
