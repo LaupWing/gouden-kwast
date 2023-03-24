@@ -81,14 +81,14 @@ const Footer = () => {
             </div>
          </div>
          <div className="container text-slate-400 py-10 flex justify-between">
-            <section className="space-y-4">
+            <section className="space-y-6">
                <h1 className="text-slate-200 text-xl">Gouden kwast</h1>
-               <ul className="text-sm space-y-1">
+               <ul className="text-sm space-y-2">
                   <li>Vredenoord 109</li>
                   <li>1852 WJ, HEILOO</li>
                   <li>KVK 12345678910</li>
                </ul>
-               <ul className="text-sm space-y-1">
+               <ul className="text-sm space-y-2">
                   <li className="flex">
                      <AiFillPhone className="mr-1 text-indigo-500" size={22} />
                      06123456789
@@ -114,7 +114,7 @@ const Footer = () => {
                </section>
                <section className="flex flex-col flex-1 flex-shrink-0 whitespace-nowrap">
                   <h2 className="text-slate-200 text-xl mb-4">Social Media</h2>
-                  <ul className="flex flex-col flex-1 justify-between">
+                  <ul className="flex flex-col flex-1 justify-around">
                      <li className="text-sm flex items-center">
                         <AiFillInstagram size={24} className="mr-2 text-indigo-500" /> Instagram
                      </li>
