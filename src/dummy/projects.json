@@ -1,0 +1,50 @@
+[
+   {
+      "project_id": "001",
+      "project_title": "Exterior House Painting",
+      "client_name": "John Smith",
+      "address": {
+         "street": "123 Main St",
+         "city": "Anytown",
+         "state": "CA",
+         "zipcode": "12345"
+      },
+      "project_description": "Exterior painting of a single-family home",
+      "type_painting": ["Exterior"],
+      "start_date": "2022-05-01",
+      "end_date": "2022-05-05",
+      "total_cost": 5000.0
+   },
+   {
+      "project_id": "002",
+      "project_title": "Interior House Painting",
+      "client_name": "Jane Doe",
+      "address": {
+         "street": "456 Elm St",
+         "city": "Sometown",
+         "state": "CA",
+         "zipcode": "67890"
+      },
+      "project_description": "Interior painting of a two-story house",
+      "type_painting": ["Interior"],
+      "start_date": "2022-06-15",
+      "end_date": "2022-06-25",
+      "total_cost": 8000.0
+   },
+   {
+      "project_id": "003",
+      "project_title": "Commercial Building Painting",
+      "client_name": "Bob Johnson",
+      "address": {
+         "street": "789 Maple Ave",
+         "city": "Othertown",
+         "state": "CA",
+         "zipcode": "54321"
+      },
+      "project_description": "Exterior painting of a commercial building",
+      "type_painting": ["Exterior", "Commercial"],
+      "start_date": "2022-08-01",
+      "end_date": "2022-08-15",
+      "total_cost": 15000.0
+   }
+]
