@@ -4,6 +4,7 @@ import Hero from "../components/Hero"
 import Layout from "../components/Layout"
 import Quotes from "../components/Quotes"
 import RequestForm from "../components/RequestForm"
+import data from "../dummy/projects.json"
 
 const IndexPage: React.FC<PageProps> = () => {
    return (
@@ -13,9 +14,27 @@ const IndexPage: React.FC<PageProps> = () => {
             <Quotes />
             <section className="py-16 flex flex-col items-center bg-slate-500">
                <div className="container">
-                  <h2 className="text-slate-100 text-3xl">Recente werk</h2>
+                  <h2 className="text-slate-100 text-3xl mb-4">Recente werk</h2>
+                  <div className="grid grid-cols-3 gap-4">
+                     {data.map(x => (
+                        <div className="flex flex-col">
+                           <div className="aspect-[4/3] relative">
+                              <img 
+                                 className="w-full h-full object-cover" 
+                                 src={x.project_image} 
+                                 alt="" 
+                              />
+                              <div className="bottom-1 left-1 bg-slate-50 absolute max-w-[80%] text-slate-800 px-4 py-2 font-bold">
+                                 <h2 className="text-lg leading-5">{x.project_title}</h2>
+                                 <p className="text-xs text-slate-400 mt-1">{x.end_date}</p>
+                              </div>
+                           </div>
+                           <p className="mt-1 text-slate-50 mb-4 text-sm">{x.project_description}</p>
+                           <button className="mt-auto mr-auto py-1 px-4 text-white uppercase text-sm rounded bg-indigo-400 font-bold tracking-wider shadow">Lees meer</button>
+                        </div>
+                     ))}
+                  </div>
                </div>
-               <img src="https://cdn.pixabay.com/photo/2014/09/07/22/17/forest-438432__340.jpg" alt="" />
             </section>
             <section className="bg-slate-200 grid grid-cols-2 h-minus-nav">
                <img className="h-full object-cover" src="https://images.pexels.com/photos/3813470/pexels-photo-3813470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
