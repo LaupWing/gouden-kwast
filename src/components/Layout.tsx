@@ -1,6 +1,9 @@
 import * as React from "react"
 import { HiPaintBrush } from "react-icons/hi2"
 import { Link } from "gatsby"
+import { AiFillPhone } from "react-icons/ai"
+import { MdEmail } from "react-icons/md"
+import { IoArrowForwardCircle } from "react-icons/io5"
 
 const temp_links = [
    {
@@ -32,6 +35,7 @@ const Layout:React.FC<React.PropsWithChildren> = ({
       <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
          <Header />
          {children}
+         <Footer/>
       </div>
    )
 }
@@ -66,5 +70,52 @@ const Header = () => {
 }
 
 const Footer = () => {
-   
+   return (
+      <footer className="bg-slate-700 flex flex-col items-center">
+         <div className="container py-10 flex justify-between items-center">
+            <h2 className="text-2xl font-bold text-slate-200">Geïnteresseerd?</h2>
+            <div className="flex text-indigo-400 uppercase tracking-wider items-center font-bold text-sm">
+               Contacteer ons 
+               <IoArrowForwardCircle className="ml-2" size={24}/>
+            </div>
+         </div>
+         <div className="container text-slate-400 py-10 flex justify-between">
+            <section className="space-y-4">
+               <h1 className="text-slate-200 text-xl">Gouden kwast</h1>
+               <ul className="text-sm space-y-1">
+                  <li>Vredenoord 109</li>
+                  <li>1852 WJ, HEILOO</li>
+                  <li>KVK 12345678910</li>
+               </ul>
+               <ul className="text-sm space-y-1">
+                  <li className="flex">
+                     <AiFillPhone className="mr-1 text-indigo-500" size={22} />
+                     06123456789
+                  </li>
+                  <li className="flex">
+                     <MdEmail className="mr-1 text-indigo-500" size={22} />
+                     bastiaan@goudenkwast.nl
+                  </li>
+               </ul>
+            </section>
+            <div className="text-slate-400 flex">
+               <section className="flex flex-col flex-1">
+                  <h2 className="text-slate-200 text-xl mb-4">Navigatie</h2>
+                  <ul className="flex flex-col flex-1 justify-around">
+                     {temp_links.map(link => (
+                        <li 
+                           className="text-sm"
+                        >
+                           { link.name }
+                        </li>
+                     ))}
+                  </ul>
+               </section>
+            </div>
+         </div>
+         <div className="container py-10 text-xs text-slate-500">
+            &copy; {new Date().getFullYear()} / Gouden Kwast is created by LaupWing.
+         </div>
+      </footer>
+   )
 }
