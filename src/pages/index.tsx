@@ -11,12 +11,18 @@ const IndexPage: React.FC<PageProps> = () => {
          <main className="flex-1">
             <Hero />
             <Quotes />
-            <div className="bg-slate-200 grid grid-cols-2 h-minus-nav">
+            <section className="py-16 flex flex-col items-center bg-slate-500">
+               <div className="container">
+                  <h2 className="text-slate-100 text-3xl">Recente werk</h2>
+               </div>
+               <img src="https://cdn.pixabay.com/photo/2014/09/07/22/17/forest-438432__340.jpg" alt="" />
+            </section>
+            <section className="bg-slate-200 grid grid-cols-2 h-minus-nav">
                <img className="h-full object-cover" src="https://images.pexels.com/photos/3813470/pexels-photo-3813470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                <div className="p-10 flex flex-col items-center justify-center">
                   <RequestForm />
                </div>
-            </div>
+            </section>
          </main>
       </Layout>
    )
