@@ -64,3 +64,7 @@ const Header = () => {
       </header>
    )
 }
+
+const Footer = () => {
+   
+}

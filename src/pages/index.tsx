@@ -11,9 +11,9 @@ const IndexPage: React.FC<PageProps> = () => {
          <main className="flex-1">
             <Hero />
             <Quotes />
-            <div className="bg-slate-200 grid grid-cols-2 h-[calc(100vh - h-nav)]">
+            <div className="bg-slate-200 grid grid-cols-2 h-minus-nav">
                <img className="h-full object-cover" src="https://images.pexels.com/photos/3813470/pexels-photo-3813470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-               <div className="p-10">
+               <div className="p-10 flex flex-col items-center justify-center">
                   <RequestForm />
                </div>
             </div>
