@@ -1,7 +1,8 @@
 import * as React from "react"
 import { HiPaintBrush } from "react-icons/hi2"
 import { Link } from "gatsby"
-import { AiFillPhone } from "react-icons/ai"
+import { AiFillInstagram, AiFillPhone } from "react-icons/ai"
+import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
 import { IoArrowForwardCircle } from "react-icons/io5"
 
@@ -98,7 +99,7 @@ const Footer = () => {
                   </li>
                </ul>
             </section>
-            <div className="text-slate-400 flex">
+            <div className="text-slate-400 flex space-x-16">
                <section className="flex flex-col flex-1">
                   <h2 className="text-slate-200 text-xl mb-4">Navigatie</h2>
                   <ul className="flex flex-col flex-1 justify-around">
@@ -109,6 +110,20 @@ const Footer = () => {
                            { link.name }
                         </li>
                      ))}
+                  </ul>
+               </section>
+               <section className="flex flex-col flex-1 flex-shrink-0 whitespace-nowrap">
+                  <h2 className="text-slate-200 text-xl mb-4">Social Media</h2>
+                  <ul className="flex flex-col flex-1 justify-between">
+                     <li className="text-sm flex items-center">
+                        <AiFillInstagram size={24} className="mr-2 text-indigo-500" /> Instagram
+                     </li>
+                     <li className="text-sm flex items-center">
+                        <FaFacebookSquare size={24} className="mr-2 text-indigo-500" /> Facebook
+                     </li>
+                     <li className="text-sm flex items-center">
+                        <FaLinkedin size={24} className="mr-2 text-indigo-500" /> LinkedIn
+                     </li>
                   </ul>
                </section>
             </div>
