@@ -5,7 +5,7 @@ import { IoLocation } from "react-icons/io5"
 
 const Quotes = () => {
    return (
-      <div className="grid grid-cols-3 text-white">
+      <div className="grid lg:grid-cols-3 text-white">
          <div className="aspect-[2/1] flex items-center justify-center bg-indigo-400">
             <div className="max-w-[80%] space-y-3 flex flex-col">
                <AiOutlineFieldTime size={40}/>
