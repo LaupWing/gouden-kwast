@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import { AiFillInstagram, AiFillPhone } from "react-icons/ai"
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
-import { IoArrowForwardCircle } from "react-icons/io5"
+import { IoArrowForwardCircle, IoClose } from "react-icons/io5"
 import { BiMenuAltRight } from "react-icons/bi"
 import { BsSearch } from "react-icons/bs"
 // import { motion } from "framer-motion"
@@ -96,8 +96,22 @@ const MobileHeader = () => {
 
 const MobileMenuNav = () => {
    return (
-      <div className="w-screen h-screen bg-white z-[10000] fixed inset-0">
-         
+      <div className="w-screen h-screen text-slate-800 p-8 bg-white z-[10000] fixed inset-0">
+         <header className="flex justify-between items-center">
+            <span className="font-display font-bold text-xl">Menu</span>
+            <IoClose size={24} />
+         </header>
+         <nav className="grid gap-4 py-10">
+            {temp_links.map(link => (
+               <Link 
+                  className="flex items-center tracking-wider"
+                  to={link.to}
+                  activeClassName=""
+               >
+                  { link.name }
+               </Link>
+            ))}
+         </nav>
       </div>
    )
 }
