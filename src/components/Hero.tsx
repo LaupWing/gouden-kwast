@@ -3,6 +3,16 @@ import { IoArrowForwardCircle } from "react-icons/io5"
 
 const Hero = () => {
    return (
+      <>
+         <HeroDesktop />
+      </>
+   )
+}
+export default Hero
+
+
+const HeroDesktop = () => {
+   return (
       <div className="h-minus-nav w-full flex">
          <div className="w-2/5 bg-slate-500 relative flex items-center justify-center">
             <div className="flex flex-col max-w-[80%] justify-center items-start space-y-10">
@@ -33,4 +43,3 @@ const Hero = () => {
       </div>
    )
 }
-export default Hero
