@@ -40,8 +40,8 @@ const Layout:React.FC<React.PropsWithChildren> = ({
 
    return (
       <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
-         <DesktopHeader />
-         <MobileHeader openDrawer={() => setOpenDrawer(true)} />
+         <HeaderDesktop />
+         <HeaderMobile openDrawer={() => setOpenDrawer(true)} />
          <AnimatePresence>
             {openDrawer && <MobileMenuNav closeDrawer={() => setOpenDrawer(false)} />}
          </AnimatePresence>
@@ -53,7 +53,7 @@ const Layout:React.FC<React.PropsWithChildren> = ({
 export default Layout
 
 
-const DesktopHeader = () => {
+const HeaderDesktop = () => {
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
@@ -80,7 +80,7 @@ const DesktopHeader = () => {
       </header>
    )
 }
-const MobileHeader = ({
+const HeaderMobile = ({
    openDrawer
 }: {
    openDrawer: () => void

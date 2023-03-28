@@ -43,3 +43,7 @@ const HeroDesktop = () => {
       </div>
    )
 }
+
+const HeroMobile = () => {
+
+}
