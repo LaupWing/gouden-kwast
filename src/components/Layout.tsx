@@ -8,7 +8,7 @@ import { MdEmail } from "react-icons/md"
 import { IoArrowForwardCircle, IoClose } from "react-icons/io5"
 import { BiMenuAltRight } from "react-icons/bi"
 import { BsSearch } from "react-icons/bs"
-// import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const temp_links = [
    {
@@ -42,7 +42,9 @@ const Layout:React.FC<React.PropsWithChildren> = ({
       <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
          <DesktopHeader />
          <MobileHeader openDrawer={() => setOpenDrawer(true)} />
-         {openDrawer && <MobileMenuNav closeDrawer={() => setOpenDrawer(false)} />}
+         <AnimatePresence>
+            {openDrawer && <MobileMenuNav closeDrawer={() => setOpenDrawer(false)} />}
+         </AnimatePresence>
          {children}
          <Footer/>
       </div>
@@ -108,7 +110,22 @@ const MobileMenuNav = ({
    closeDrawer: () => void
 }) => {
    return (
-      <div className="w-screen h-screen text-slate-800 p-8 bg-white z-[10000] fixed inset-0">
+      <motion.div 
+         className="w-screen h-screen text-slate-800 p-8 bg-white z-[10000] fixed inset-0"
+         initial={{
+            x: "-100%"
+         }}
+         animate={{
+            x: "0",
+            transition: {
+               type: "spring",
+               damping: 20
+            }
+         }}
+         exit={{
+            x: "-100%"
+         }}
+      >
          <header className="flex justify-between items-center">
             <span className="font-display font-bold text-xl">Menu</span>
             <IoClose 
@@ -128,7 +145,7 @@ const MobileMenuNav = ({
                </Link>
             ))}
          </nav>
-      </div>
+      </motion.div>
    )
 }
 
