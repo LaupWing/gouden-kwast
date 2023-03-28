@@ -47,8 +47,8 @@ const HeroDesktop = () => {
 
 const HeroMobile = () => {
    return (
-      <div className="h-minus-nav w-full flex relative">
-         <div className="bg-slate-500 flex flex-col max-w-[80%] justify-center items-start space-y-10 z-50 p-4 my-auto rounded-md ml-4">
+      <div className="h-minus-nav lg:hidden w-full flex relative">
+         <div className="bg-slate-800 flex flex-col max-w-[80%] justify-center items-start space-y-10 z-50 p-4 my-auto rounded-md ml-4">
             <h2 className="text-2xl text-white font-semibold tracking-wide leading-[2.5rem]">Het schildersbedrijf voor regio Alkmaar</h2>
             <button className="flex shadow h-9">
                <div className="bg-yellow-400 h-full flex items-center justify-center px-6 uppercase text-sm font-bold text-slate-600">
@@ -64,7 +64,7 @@ const HeroMobile = () => {
             className="w-full h-full object-cover absolute inset-0"
             alt="" 
          />
-         <div className="absolute inset-0 bg-slate-600/20"/>
+         <div className="absolute inset-0 bg-slate-800/20"/>
       </div>
    )
 }

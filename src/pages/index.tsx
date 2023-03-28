@@ -12,7 +12,7 @@ const IndexPage: React.FC<PageProps> = () => {
          <main className="flex-1">
             <Hero />
             <Quotes />
-            <section className="py-24 flex flex-col items-center bg-slate-500">
+            <section className="py-24 flex flex-col items-center bg-slate-700">
                <div className="container p-6">
                   <h2 className="text-slate-100 text-3xl mb-4">Recente werk</h2>
                   <div className="grid lg:grid-cols-3 lg:gap-4 gap-y-10">
@@ -36,7 +36,10 @@ const IndexPage: React.FC<PageProps> = () => {
                   </div>
                </div>
             </section>
-            <section className="bg-slate-200 grid lg:grid-cols-2 h-minus-nav">
+            <section 
+               className="bg-slate-200 grid lg:grid-cols-2 h-minus-nav"
+               id="contact"
+            >
                <img className="h-full hidden lg:block object-cover" src="https://images.pexels.com/photos/3813470/pexels-photo-3813470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                <div className="lg:p-10 p-4 flex flex-col items-center justify-center">
                   <RequestForm />
