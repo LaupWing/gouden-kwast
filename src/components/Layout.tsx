@@ -152,14 +152,14 @@ const MobileMenuNav = ({
 const Footer = () => {
    return (
       <footer className="bg-slate-700 flex flex-col items-center">
-         <div className="container py-10 flex justify-between items-center">
+         <div className="container py-10 px-6 lg:px-0 flex lg:flex-row flex-col justify-between lg:items-center items-start">
             <h2 className="text-2xl font-bold text-slate-200">Geïnteresseerd?</h2>
             <div className="flex text-indigo-400 uppercase tracking-wider items-center font-bold text-sm">
                Contacteer ons 
                <IoArrowForwardCircle className="ml-2" size={24}/>
             </div>
          </div>
-         <div className="container text-slate-400 py-10 flex justify-between">
+         <div className="container text-slate-400 py-10 lg:px-0 px-6 flex justify-between lg:flex-row flex-col space-y-10 lg:space-y-0">
             <section className="space-y-6">
                <h1 className="text-slate-200 text-xl">Gouden kwast</h1>
                <ul className="text-sm space-y-2">
@@ -178,10 +178,10 @@ const Footer = () => {
                   </li>
                </ul>
             </section>
-            <div className="text-slate-400 flex space-x-16">
+            <div className="text-slate-400 flex lg:flex-row lg:space-y-0 space-y-10 flex-col lg:space-x-16">
                <section className="flex flex-col flex-1">
                   <h2 className="text-slate-200 text-xl mb-4">Navigatie</h2>
-                  <ul className="flex flex-col flex-1 justify-around">
+                  <ul className="flex flex-col flex-1 space-y-2 lg:space-y-0 justify-around">
                      {temp_links.map(link => (
                         <li 
                            className="text-sm"
@@ -193,7 +193,7 @@ const Footer = () => {
                </section>
                <section className="flex flex-col flex-1 flex-shrink-0 whitespace-nowrap">
                   <h2 className="text-slate-200 text-xl mb-4">Social Media</h2>
-                  <ul className="flex flex-col flex-1 justify-around">
+                  <ul className="flex flex-col flex-1 justify-around space-y-3 lg:space-y-0">
                      <li className="text-sm flex items-center">
                         <AiFillInstagram size={24} className="mr-2 text-indigo-500" /> Instagram
                      </li>
@@ -207,7 +207,7 @@ const Footer = () => {
                </section>
             </div>
          </div>
-         <div className="container py-10 text-xs text-slate-500">
+         <div className="container py-10 lg:px-0 px-6 text-xs text-slate-500">
             &copy; {new Date().getFullYear()} / Gouden Kwast is created by LaupWing.
          </div>
       </footer>
