@@ -50,8 +50,6 @@ export const Layout:React.FC<React.PropsWithChildren> = ({
       </div>
    )
 }
-export default Layout
-
 
 const HeaderDesktop = () => {
    return (

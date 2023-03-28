@@ -1,7 +1,7 @@
 import * as React from "react"
 import { IoArrowForwardCircle } from "react-icons/io5"
 
-const Hero = () => {
+export const Hero = () => {
    return (
       <>
          <HeroDesktop />
