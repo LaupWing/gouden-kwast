@@ -33,7 +33,7 @@ const temp_links = [
    },
 ]
 
-const Layout:React.FC<React.PropsWithChildren> = ({
+export const Layout:React.FC<React.PropsWithChildren> = ({
    children
 }) =>{
    const [openDrawer, setOpenDrawer] = useState(false)
