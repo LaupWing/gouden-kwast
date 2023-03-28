@@ -89,6 +89,14 @@ const MobileHeader = () => {
    )
 }
 
+const MobileMenuNav = () => {
+   return (
+      <div>
+         
+      </div>
+   )
+}
+
 const Footer = () => {
    return (
       <footer className="bg-slate-700 flex flex-col items-center">
