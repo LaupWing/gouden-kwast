@@ -65,6 +65,7 @@ const DesktopHeader = () => {
                      className="px-4 flex items-center tracking-wider"
                      to={link.to}
                      activeClassName="bg-black/10"
+                     key={link.name}
                   >
                      { link.name }
                   </Link>
@@ -106,7 +107,8 @@ const MobileMenuNav = () => {
                <Link 
                   className="flex items-center tracking-wider"
                   to={link.to}
-                  activeClassName=""
+                  activeClassName="text-yellow-500"
+                  key={link.name}
                >
                   { link.name }
                </Link>
