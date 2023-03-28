@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react"
 import { HiPaintBrush } from "react-icons/hi2"
 import { Link } from "gatsby"
 import { AiFillInstagram, AiFillPhone } from "react-icons/ai"
@@ -7,6 +8,7 @@ import { MdEmail } from "react-icons/md"
 import { IoArrowForwardCircle } from "react-icons/io5"
 import { BiMenuAltRight } from "react-icons/bi"
 import { BsSearch } from "react-icons/bs"
+// import { motion } from "framer-motion"
 
 const temp_links = [
    {
@@ -34,10 +36,13 @@ const temp_links = [
 const Layout:React.FC<React.PropsWithChildren> = ({
    children
 }) =>{
+   const [openDrawer, setOpenDrawer] = useState(true)
+
    return (
       <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
          <DesktopHeader />
          <MobileHeader />
+         <MobileMenuNav />
          {children}
          <Footer/>
       </div>
@@ -74,7 +79,7 @@ const DesktopHeader = () => {
 }
 const MobileHeader = () => {
    return (
-      <header className="w-full lg:hidden flex justify-between items-center text-white sticky top-0 bg-slate-600 z-[10000] p-2 px-4">
+      <header className="w-full lg:hidden flex justify-between items-center text-white sticky top-0 bg-slate-600 z-[1000] p-2 px-4">
          <div className="justify-start flex-1 flex">
             <BiMenuAltRight size={30} />
          </div>
@@ -91,7 +96,7 @@ const MobileHeader = () => {
 
 const MobileMenuNav = () => {
    return (
-      <div>
+      <div className="w-screen h-screen bg-white z-[10000] fixed inset-0">
          
       </div>
    )
