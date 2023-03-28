@@ -13,9 +13,9 @@ const IndexPage: React.FC<PageProps> = () => {
             <Hero />
             <Quotes />
             <section className="py-24 flex flex-col items-center bg-slate-500">
-               <div className="container">
+               <div className="container p-6">
                   <h2 className="text-slate-100 text-3xl mb-4">Recente werk</h2>
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid lg:grid-cols-3 lg:gap-4 gap-y-10">
                      {data.map(x => (
                         <div className="flex flex-col">
                            <div className="aspect-[4/3] relative">
