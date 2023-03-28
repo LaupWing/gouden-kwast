@@ -36,9 +36,9 @@ const IndexPage: React.FC<PageProps> = () => {
                   </div>
                </div>
             </section>
-            <section className="bg-slate-200 grid grid-cols-2 h-minus-nav">
-               <img className="h-full object-cover" src="https://images.pexels.com/photos/3813470/pexels-photo-3813470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-               <div className="p-10 flex flex-col items-center justify-center">
+            <section className="bg-slate-200 grid lg:grid-cols-2 h-minus-nav">
+               <img className="h-full hidden lg:block object-cover" src="https://images.pexels.com/photos/3813470/pexels-photo-3813470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+               <div className="lg:p-10 p-4 flex flex-col items-center justify-center">
                   <RequestForm />
                </div>
             </section>
