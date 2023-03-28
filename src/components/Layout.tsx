@@ -36,13 +36,13 @@ const temp_links = [
 const Layout:React.FC<React.PropsWithChildren> = ({
    children
 }) =>{
-   const [openDrawer, setOpenDrawer] = useState(true)
+   const [openDrawer, setOpenDrawer] = useState(false)
 
    return (
       <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
          <DesktopHeader />
-         <MobileHeader />
-         <MobileMenuNav />
+         <MobileHeader openDrawer={() => setOpenDrawer(true)} />
+         {openDrawer && <MobileMenuNav closeDrawer={() => setOpenDrawer(false)} />}
          {children}
          <Footer/>
       </div>
@@ -78,11 +78,18 @@ const DesktopHeader = () => {
       </header>
    )
 }
-const MobileHeader = () => {
+const MobileHeader = ({
+   openDrawer
+}: {
+   openDrawer: () => void
+}) => {
    return (
       <header className="w-full lg:hidden flex justify-between items-center text-white sticky top-0 bg-slate-600 z-[1000] p-2 px-4">
          <div className="justify-start flex-1 flex">
-            <BiMenuAltRight size={30} />
+            <BiMenuAltRight 
+               size={30} 
+               onClick={openDrawer}
+            />
          </div>
          <div className=" text-yellow-400 self-stretch flex-1 flex items-center justify-center">
             <HiPaintBrush size={30} />
@@ -95,12 +102,19 @@ const MobileHeader = () => {
    )
 }
 
-const MobileMenuNav = () => {
+const MobileMenuNav = ({
+   closeDrawer
+}: {
+   closeDrawer: () => void
+}) => {
    return (
       <div className="w-screen h-screen text-slate-800 p-8 bg-white z-[10000] fixed inset-0">
          <header className="flex justify-between items-center">
             <span className="font-display font-bold text-xl">Menu</span>
-            <IoClose size={24} />
+            <IoClose 
+               size={24} 
+               onClick={closeDrawer}
+            />
          </header>
          <nav className="grid gap-4 py-10">
             {temp_links.map(link => (
