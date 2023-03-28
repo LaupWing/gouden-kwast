@@ -74,7 +74,7 @@ const DesktopHeader = () => {
 }
 const MobileHeader = () => {
    return (
-      <header className="w-full lg:hidden flex justify-between items-center text-slate-900 sticky top-0 bg-white z-[10000] p-2 px-4">
+      <header className="w-full lg:hidden flex justify-between items-center text-white sticky top-0 bg-slate-600 z-[10000] p-2 px-4">
          <div className="justify-start flex-1 flex">
             <BiMenuAltRight size={30} />
          </div>
