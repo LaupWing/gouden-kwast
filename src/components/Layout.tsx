@@ -5,6 +5,8 @@ import { AiFillInstagram, AiFillPhone } from "react-icons/ai"
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
 import { IoArrowForwardCircle } from "react-icons/io5"
+import { BiMenuAltRight } from "react-icons/bi"
+import { BsSearch } from "react-icons/bs"
 
 const temp_links = [
    {
@@ -46,7 +48,7 @@ export default Layout
 
 const DesktopHeader = () => {
    return (
-      <header className="w-full sticky top-0 bg-white z-[10000]">
+      <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
             <div className="w-44 h-28 bg-slate-600 text-yellow-400 flex flex-col items-center justify-center absolute top-0 left-0">
                <HiPaintBrush size={30} />
@@ -72,27 +74,17 @@ const DesktopHeader = () => {
 }
 const MobileHeader = () => {
    return (
-      <header className="w-full sticky top-0 bg-white z-[10000]">
-         <nav className="flex items-start relative">
-            <div className="w-44 h-28 bg-slate-600 text-yellow-400 flex flex-col items-center justify-center absolute top-0 left-0">
-               <HiPaintBrush size={30} />
-               <h1 className="flex flex-col font-display items-center leading-4"><span>Gouden</span>  <span>Kwast</span></h1>
-            </div>
-            <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
-               {temp_links.map(link => (
-                  <Link 
-                     className="px-4 flex items-center tracking-wider"
-                     to={link.to}
-                     activeClassName="bg-black/10"
-                  >
-                     { link.name }
-                  </Link>
-               ))}
-               <div className="bg-indigo-400 tracking-wide flex items-center justify-center px-10 text-white">
-                  Bel: 061234567
-               </div>
-            </ul>
-         </nav>
+      <header className="w-full lg:hidden flex justify-between items-center text-slate-900 sticky top-0 bg-white z-[10000] p-2 px-4">
+         <div className="justify-start flex-1 flex">
+            <BiMenuAltRight size={30} />
+         </div>
+         <div className=" text-yellow-400 self-stretch flex-1 flex items-center justify-center">
+            <HiPaintBrush size={30} />
+            <h1 className="flex flex-col font-display items-center leading-4"><span>Gouden</span>  <span>Kwast</span></h1>
+         </div>
+         <div className="flex-1 flex justify-end">
+            <BsSearch size={24} />
+         </div>
       </header>
    )
 }
