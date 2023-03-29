@@ -108,7 +108,7 @@ const HeaderDesktopDropdown:FC<{
    return (
       <Menu 
          as={"div"}
-         className="relative"
+         className="relative flex"
       >
          <div className="space-x-2 px-4 flex items-center">
             <Link 
@@ -125,8 +125,24 @@ const HeaderDesktopDropdown:FC<{
          </div>
          <Transition
             as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-65"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
          >
-
+            <Menu.Items>
+               {link.links!.map(x => 
+                  <Menu.Item>
+                     {({active}) => (
+                        <button>
+                           {x.name}
+                        </button>
+                     )}
+                  </Menu.Item>
+               )}
+            </Menu.Items>
          </Transition>
       </Menu>
    )
