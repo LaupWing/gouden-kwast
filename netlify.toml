@@ -1,2 +1,2 @@
 [build.environment]
-   NODE_VERSIN = "18.13.0"
+   NODE_VERSION = "18.13.0"
