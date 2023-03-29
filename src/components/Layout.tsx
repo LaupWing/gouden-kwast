@@ -1,3 +1,4 @@
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 import * as React from "react"
 import type { FC } from "react"
 import { Fragment } from "react"
