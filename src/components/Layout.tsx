@@ -132,11 +132,11 @@ const HeaderDesktopDropdown:FC<{
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
          >
-            <Menu.Items className={"absolute -bottom-1 shadow text-left transform translate-y-full flex flex-col bg-white w-full rounded"}>
+            <Menu.Items className={"absolute -bottom-1 shadow text-left transform translate-y-full flex flex-col bg-white w-full rounded divide-y"}>
                {link.links!.map(x => 
                   <Menu.Item>
                      {({active}) => (
-                        <button className="w-full text-left">
+                        <button className="w-full text-left px-4 py-2">
                            {x.name}
                         </button>
                      )}
