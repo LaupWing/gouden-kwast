@@ -13,7 +13,6 @@ interface FormData {
 const RequestForm = () => {
    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
    const onSubmit = handleSubmit(data => console.log(data))
-   console.log(errors)
 
    return (
       <form 
