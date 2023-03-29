@@ -22,7 +22,7 @@ const RequestForm = () => {
       >
          <h2 className="text-2xl mb-4">Gratis adviesgesprek?</h2>
          <div className="grid grid-cols-2 gap-4">
-            <div className="grid grid-cols-2 gap-4 col-span-2 items-start">
+            <div className="grid lg:grid-cols-2 gap-4 col-span-2 items-start">
                <InputWithError 
                   name="name" 
                   placeholder="Jouw naam"
@@ -39,7 +39,7 @@ const RequestForm = () => {
                   errors={errors}
                />
             </div>
-            <div className="grid grid-cols-2 gap-4 col-span-2 items-start">
+            <div className="grid lg:grid-cols-2 gap-4 col-span-2 items-start">
                <input 
                   className="bg-white border-gray-300 rounded-[3px]" 
                   type="tel" 
