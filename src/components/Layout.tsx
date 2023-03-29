@@ -178,6 +178,20 @@ const MobileMenuNav = ({
 }: {
    closeDrawer: () => void
 }) => {
+   const container = {
+      hidden: {  },
+      show: {
+         transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.6,
+         },
+      },
+   }
+
+   const item = {
+      hidden: { scale: 0 },
+      show: { scale: 1 },
+   }
    return (
       <motion.div 
          className="w-screen h-screen text-slate-800 p-8 bg-white z-[10000] fixed inset-0"
@@ -202,17 +216,28 @@ const MobileMenuNav = ({
                onClick={closeDrawer}
             />
          </header>
-         <nav className="grid gap-4 py-10">
-            {temp_links.map(link => (
-               <Link 
-                  className="flex items-center tracking-wider"
-                  to={link.to}
-                  activeClassName="text-yellow-500"
-                  key={link.name}
-               >
-                  { link.name }
-               </Link>
-            ))}
+         <nav className="grid">
+            <motion.ul 
+               className="grid gap-4 py-10"
+               variants={container}
+               initial="hidden"
+               animate="show"
+            >
+               {temp_links.map(link => (
+                  <motion.li
+                     key={link.name}
+                     variants={item}
+                  >
+                     <Link 
+                        className="flex items-center tracking-wider"
+                        to={link.to}
+                        activeClassName="text-yellow-500"
+                     >
+                        { link.name }
+                     </Link>
+                  </motion.li>
+               ))}
+            </motion.ul>
          </nav>
       </motion.div>
    )
