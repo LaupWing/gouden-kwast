@@ -77,17 +77,7 @@ const HeaderDesktop = () => {
             <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
                {temp_links.map(link => (
                      link.links?.length! > 0 ? (
-                        <div className="space-x-2 px-4 flex items-center">
-                           <Link 
-                              className="flex items-center tracking-wider"
-                              to={link.to}
-                              activeClassName="bg-black/10"
-                              key={link.name}
-                           >
-                              { link.name }
-                           </Link>
-                           <FiChevronDown size={20} />
-                        </div>
+                        <HeaderDesktopDropdown />
                      ) : (
                         <Link 
                            className="px-4 flex items-center tracking-wider"
@@ -107,6 +97,24 @@ const HeaderDesktop = () => {
       </header>
    )
 }
+
+const HeaderDesktopDropdown:FC<{}> = () => {
+   return (
+      <div className="space-x-2 px-4 flex items-center">
+         <Link 
+            className="flex items-center tracking-wider"
+            to={link.to}
+            activeClassName="bg-black/10"
+            key={link.name}
+         >
+            { link.name }
+         </Link>
+         <FiChevronDown size={20} />
+      </div>
+   )
+}
+
+
 const HeaderMobile = ({
    openDrawer
 }: {
