@@ -107,17 +107,21 @@ const HeaderDesktopDropdown:FC<{
    return (
       <Menu 
          as={"div"}
-         className="space-x-2 px-4 flex items-center"
+         className="relative"
       >
-         <Link 
-            className="flex items-center tracking-wider"
-            to={link.to}
-            activeClassName="bg-black/10"
-            key={link.name}
-         >
-            { link.name }
-         </Link>
-         <FiChevronDown size={20} />
+         <div className="space-x-2 px-4 flex items-center">
+            <Link 
+               className="flex items-center tracking-wider"
+               to={link.to}
+               activeClassName="bg-black/10"
+               key={link.name}
+            >
+               { link.name }
+            </Link>
+            <Menu.Button>
+               <FiChevronDown size={20} />
+            </Menu.Button>
+         </div>
       </Menu>
    )
 }
