@@ -1,4 +1,6 @@
+import type { FC } from "react"
 import * as React from "react"
+import { Menu, Transition } from "@headlessui/react"
 import { useState } from "react"
 import { HiPaintBrush } from "react-icons/hi2"
 import { Link } from "gatsby"
@@ -10,6 +12,7 @@ import { IoArrowForwardCircle, IoClose } from "react-icons/io5"
 import { BiMenuAltRight } from "react-icons/bi"
 import { BsSearch } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
+import { LinkType } from "../typings"
 
 const temp_links = [
    {
@@ -77,7 +80,7 @@ const HeaderDesktop = () => {
             <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
                {temp_links.map(link => (
                      link.links?.length! > 0 ? (
-                        <HeaderDesktopDropdown />
+                        <HeaderDesktopDropdown link={link} />
                      ) : (
                         <Link 
                            className="px-4 flex items-center tracking-wider"
@@ -98,9 +101,14 @@ const HeaderDesktop = () => {
    )
 }
 
-const HeaderDesktopDropdown:FC<{}> = () => {
+const HeaderDesktopDropdown:FC<{
+   link: LinkType
+}> = ({ link }) => {
    return (
-      <div className="space-x-2 px-4 flex items-center">
+      <Menu 
+         as={"div"}
+         className="space-x-2 px-4 flex items-center"
+      >
          <Link 
             className="flex items-center tracking-wider"
             to={link.to}
@@ -110,7 +118,7 @@ const HeaderDesktopDropdown:FC<{}> = () => {
             { link.name }
          </Link>
          <FiChevronDown size={20} />
-      </div>
+      </Menu>
    )
 }
 
