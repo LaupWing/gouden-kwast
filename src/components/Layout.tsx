@@ -4,6 +4,7 @@ import { HiPaintBrush } from "react-icons/hi2"
 import { Link } from "gatsby"
 import { AiFillInstagram, AiFillPhone } from "react-icons/ai"
 import { FaFacebookSquare, FaLinkedin } from "react-icons/fa"
+import { FiChevronDown } from "react-icons/fi"
 import { MdEmail } from "react-icons/md"
 import { IoArrowForwardCircle, IoClose } from "react-icons/io5"
 import { BiMenuAltRight } from "react-icons/bi"
@@ -75,14 +76,28 @@ const HeaderDesktop = () => {
             </div>
             <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
                {temp_links.map(link => (
-                  <Link 
-                     className="px-4 flex items-center tracking-wider"
-                     to={link.to}
-                     activeClassName="bg-black/10"
-                     key={link.name}
-                  >
-                     { link.name }
-                  </Link>
+                     link.links?.length! > 0 ? (
+                        <div className="space-x-2 px-4 flex items-center">
+                           <Link 
+                              className="flex items-center tracking-wider"
+                              to={link.to}
+                              activeClassName="bg-black/10"
+                              key={link.name}
+                           >
+                              { link.name }
+                           </Link>
+                           <FiChevronDown size={20} />
+                        </div>
+                     ) : (
+                        <Link 
+                           className="px-4 flex items-center tracking-wider"
+                           to={link.to}
+                           activeClassName="bg-black/10"
+                           key={link.name}
+                        >
+                           { link.name }
+                        </Link>
+                     )
                ))}
                <div className="bg-indigo-400 tracking-wide flex items-center justify-center px-10 text-white">
                   Bel: 061234567
