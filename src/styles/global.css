@@ -14,3 +14,12 @@
       --height-nav: 4.5rem;
    }
 }
+
+.control-dots{
+   margin: 0!important;
+   transform: translateY(110%);
+}
+
+.carousel.carousel-slider {
+   overflow: visible!important;
+}
