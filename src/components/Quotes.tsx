@@ -26,7 +26,7 @@ const Quotes = () => {
    ]
 
    return (
-      <div className="grid lg:grid-cols-3 text-white overflow-hidden">
+      <div className="grid md:grid-cols-3 text-white overflow-hidden">
          {quotes_data.map((data, i) => (
             <Quote 
                key={i}
