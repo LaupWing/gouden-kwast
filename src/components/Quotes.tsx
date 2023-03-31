@@ -1,3 +1,5 @@
+import clsx from "clsx"
+import { motion } from "framer-motion"
 import * as React from "react"
 import { AiOutlineFieldTime } from "react-icons/ai"
 import { BsShieldFillCheck } from "react-icons/bs"
@@ -28,6 +30,7 @@ const Quotes = () => {
          {quotes_data.map((data, i) => (
             <Quote 
                key={i}
+               index={i}
                Icon={data.icon}
                title={data.title}
                description={data.description}
@@ -41,21 +44,41 @@ export default Quotes
 interface QuoteProps {
    Icon: IconType
    title: string
+   index: number
    description: string
 }
 const Quote:React.FC<QuoteProps> = ({
    Icon,
    title,
-   description
+   description,
+   index
 }) => {
+   const isEven = index % 2 === 0
    return (
-      <div className="aspect-[2/1] flex items-center justify-center py-10 bg-slate-500">
+      <div className={clsx(
+         "aspect-[2/1] flex items-center justify-center py-10",
+         isEven ? "bg-slate-600" : "bg-slate-500"
+      )}>
          <div className="max-w-[80%] flex flex-col">
-            <div className="flex flex-col mb-2">
+            <motion.div 
+               className="flex flex-col mb-2"
+               initial={{
+                  x: "100%",
+                  opacity: 0,
+               }}
+               whileInView={{
+                  x: 0,
+                  opacity: 1,
+                  
+                  transition: {
+                     delay: 0.3
+                  }
+               }}
+            >
                <Icon className="text-yellow-500" size={40}/>
                <h2 className="text-xl text-yellow-400">{ title }</h2>
-            </div>
-            <p className="text-sm">{ description }</p>
+            </motion.div>
+            <motion.p className="text-sm">{ description }</motion.p>
          </div>
       </div>
    )
