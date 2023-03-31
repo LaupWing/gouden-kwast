@@ -73,6 +73,7 @@ export const Layout:React.FC<React.PropsWithChildren> = ({
 }
 
 const HeaderDesktop = () => {
+   const links = useMenuQuery() 
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
@@ -110,8 +111,6 @@ const HeaderDesktop = () => {
 const HeaderDesktopDropdown:FC<{
    link: LinkType
 }> = ({ link }) => {
-
-   console.log(useMenuQuery())
    return (
       <Menu 
          as={"div"}
