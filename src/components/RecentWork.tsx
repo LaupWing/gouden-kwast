@@ -62,18 +62,25 @@ const CarouselSmall = () => {
       </Carousel>
    )
 }
-const CarouselMedium = () => {
-   const parts = Math.ceil(data.length / 2)
+
+const DynamicCarousel = ({
+   cardLength,
+   className = ""
+}: {
+   cardLength: number,
+   className?: string
+}) => {
+   const parts = Math.ceil(data.length / cardLength)
    
    return (
-      <Carousel showThumbs={false} showStatus={false}>
+      <Carousel className={className} showThumbs={false} showStatus={false}>
          {[...Array(parts)].map((_, i) => (
             <div 
                className="grid lg:grid-cols-2 lg:gap-4 gap-y-10"
                key={i}
             >
                {data
-                  .filter((_, i2) => (i2 < ((i + 1) * 2)) && (i2 >= ((i) * 2)))
+                  .filter((_, i2) => (i2 < ((i + 1) * cardLength)) && (i2 >= ((i) * cardLength)))
                   .map((x, i2) => (
                      <div 
                         className="flex flex-col"
@@ -97,6 +104,15 @@ const CarouselMedium = () => {
             </div>
          ))}
       </Carousel>
+   )
+}
+
+const CarouselMedium = () => {
+   return (
+      <DynamicCarousel 
+         cardLength={2}
+         className=""
+      />
    )
 }
 const CarouselLarge = () => {
