@@ -5,29 +5,34 @@ import { IoLocation } from "react-icons/io5"
 import { IconType } from "react-icons/lib"
 
 const Quotes = () => {
+   const quotes_data = [
+      {
+         icon: AiOutlineFieldTime,
+         title: "Lorem ipsum",
+         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quibusdam dolor."
+      },
+      {
+         icon: BsShieldFillCheck,
+         title: "Lorem ipsum",
+         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quibusdam dolor."
+      },
+      {
+         icon: IoLocation,
+         title: "Lorem ipsum",
+         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quibusdam dolor."
+      },
+   ]
+
    return (
       <div className="grid lg:grid-cols-3 text-white">
-         <div className="aspect-[2/1] flex items-center justify-center py-10 bg-slate-500">
-            <div className="max-w-[80%] flex flex-col">
-               <AiOutlineFieldTime className="text-yellow-500" size={40}/>
-               <h2 className="text-xl text-yellow-400 mb-2">Lorem ipsum</h2>
-               <p className="text-sm"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quibusdam dolor. </p>
-            </div>
-         </div>
-         <div className="aspect-[2/1] flex items-center justify-center bg-slate-600">
-            <div className="max-w-[80%] space-y-3 flex flex-col">
-               <BsShieldFillCheck size={38}/>
-               <h2 className="text-xl">Lorem ipsum</h2>
-               <p className="text-sm"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quibusdam dolor. </p>
-            </div>
-         </div>
-         <div className="aspect-[2/1] flex items-center justify-center bg-slate-500">
-            <div className="max-w-[80%] space-y-3 flex flex-col">
-               <IoLocation size={40}/>
-               <h2 className="text-xl">Lorem ipsum</h2>
-               <p className="text-sm"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae quibusdam dolor. </p>
-            </div>
-         </div>
+         {quotes_data.map((data, i) => (
+            <Quote 
+               key={i}
+               Icon={data.icon}
+               title={data.title}
+               description={data.description}
+            />
+         ))}
       </div>
    )
 }
