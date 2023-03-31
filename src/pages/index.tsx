@@ -33,7 +33,7 @@ const IndexPage: React.FC<PageProps> = () => {
                               </div>
                            </div>
                            <p className="mt-1 text-slate-50 mb-4 text-sm">{x.project_description}</p>
-                           <button className="mt-auto mr-auto py-1 px-4 text-white uppercase text-sm rounded bg-indigo-400 font-bold tracking-wider shadow">Lees meer</button>
+                           <button className="mt-auto mr-auto py-1 px-4 text-slate-800 uppercase text-sm rounded bg-yellow-400 font-bold tracking-wider shadow">Lees meer</button>
                         </div>
                      ))}
                   </div>

@@ -97,7 +97,7 @@ const HeaderDesktop = () => {
                         </Link>
                      )
                ))}
-               <div className="bg-indigo-400 tracking-wide flex items-center justify-center px-10 text-white">
+               <div className="bg-yellow-400 tracking-wide flex items-center justify-center px-10 text-slate-600">
                   Bel: 061234567
                </div>
             </ul>
@@ -254,7 +254,7 @@ const Footer = () => {
       <footer className="bg-slate-700 flex flex-col items-center">
          <div className="container py-10 px-6 lg:px-0 flex lg:flex-row flex-col justify-between lg:items-center items-start">
             <h2 className="text-2xl font-bold text-slate-200">Geïnteresseerd?</h2>
-            <div className="flex text-indigo-400 uppercase tracking-wider items-center font-bold text-sm">
+            <div className="flex text-yellow-400 uppercase tracking-wider items-center font-bold text-sm">
                Contacteer ons 
                <IoArrowForwardCircle className="ml-2" size={24}/>
             </div>
@@ -269,11 +269,11 @@ const Footer = () => {
                </ul>
                <ul className="text-sm space-y-2">
                   <li className="flex">
-                     <AiFillPhone className="mr-1 text-indigo-500" size={22} />
+                     <AiFillPhone className="mr-1 text-yellow-500" size={22} />
                      06123456789
                   </li>
                   <li className="flex">
-                     <MdEmail className="mr-1 text-indigo-500" size={22} />
+                     <MdEmail className="mr-1 text-yellow-500" size={22} />
                      bastiaan@goudenkwast.nl
                   </li>
                </ul>
@@ -296,13 +296,13 @@ const Footer = () => {
                   <h2 className="text-slate-200 text-xl mb-4">Social Media</h2>
                   <ul className="flex flex-col flex-1 justify-around space-y-3 lg:space-y-0">
                      <li className="text-sm flex items-center">
-                        <AiFillInstagram size={24} className="mr-2 text-indigo-500" /> Instagram
+                        <AiFillInstagram size={24} className="mr-2 text-yellow-500" /> Instagram
                      </li>
                      <li className="text-sm flex items-center">
-                        <FaFacebookSquare size={24} className="mr-2 text-indigo-500" /> Facebook
+                        <FaFacebookSquare size={24} className="mr-2 text-yellow-500" /> Facebook
                      </li>
                      <li className="text-sm flex items-center">
-                        <FaLinkedin size={24} className="mr-2 text-indigo-500" /> LinkedIn
+                        <FaLinkedin size={24} className="mr-2 text-yellow-500" /> LinkedIn
                      </li>
                   </ul>
                </section>

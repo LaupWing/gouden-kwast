@@ -19,7 +19,7 @@ export const ProjectCard:FC<{
             </div>
          </div>
          <p className="mt-1 text-slate-50 mb-4 text-sm">{project.project_description}</p>
-         <button className="mt-auto mr-auto py-1 px-4 text-white uppercase text-sm rounded bg-indigo-400 font-bold tracking-wider shadow">Lees meer</button>
+         <button className="mt-auto mr-auto py-1 px-4 text-white uppercase text-sm rounded bg-yellow-400 font-bold tracking-wider shadow">Lees meer</button>
       </div>
    )
 }
