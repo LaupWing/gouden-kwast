@@ -10,7 +10,7 @@ module.exports = {
       {
          resolve: "gatsby-source-wordpress",
          options: {
-            url: "http://goudenkwast.laupwing.site/graphql",
+            url: "https://goudenkwast.laupwing.site/graphql",
          },
       },
       "gatsby-plugin-postcss",
