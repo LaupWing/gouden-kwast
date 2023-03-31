@@ -16,6 +16,7 @@ import { BsSearch } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
 import { LinkType } from "../typings"
 import { useMenuQuery } from "../hooks/useMenuQuery"
+import { MenuItem } from "../generated/graphql"
 
 const temp_links = [
    {
@@ -73,7 +74,9 @@ export const Layout:React.FC<React.PropsWithChildren> = ({
 }
 
 const HeaderDesktop = () => {
-   const links = useMenuQuery() 
+   const links:MenuItem[] = useMenuQuery() 
+
+   console.log(links)
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
@@ -82,20 +85,21 @@ const HeaderDesktop = () => {
                <h1 className="flex flex-col font-display items-center leading-4"><span>Gouden</span>  <span>Kwast</span></h1>
             </div>
             <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
-               {temp_links.map(link => (
-                     link.links?.length! > 0 ? (
-                        <HeaderDesktopDropdown 
-                           link={link} 
-                           key={link.name}
-                        />
+               {links.filter(x => !x.parentId).map(link => (
+                     link.childItems?.nodes.length! > 0 ? (
+                        <></>
+                        // <HeaderDesktopDropdown 
+                        //    link={link} 
+                        //    key={link.name}
+                        // />
                      ) : (
                         <Link 
                            className="px-4 flex items-center tracking-wider"
-                           to={link.to}
+                           to={link.url!}
                            activeClassName="bg-black/10"
-                           key={link.name}
+                           key={link.id}
                         >
-                           { link.name }
+                           { link.label }
                         </Link>
                      )
                ))}

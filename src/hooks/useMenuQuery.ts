@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
+import { MenuItemConnection } from "../generated/graphql"
 
 export const useMenuQuery = () => {
    const data = useStaticQuery(graphql`
@@ -21,7 +22,6 @@ export const useMenuQuery = () => {
             }
          }
       }
-   `)
-
-   return data.wpMenu.menuItems.nodes
+   `) 
+   return (data.wpMenu.menuItems  as MenuItemConnection).nodes
 }
