@@ -90,7 +90,7 @@ const CarouselMedium = () => {
                               <p className="text-xs text-slate-400 mt-1">{x.end_date}</p>
                            </div>
                         </div>
-                        <p className="mt-1 text-slate-50 mb-4 text-sm">{x.project_description}</p>
+                        <p className="mt-1 text-slate-50 mb-4 text-sm text-left">{x.project_description}</p>
                         <button className="mt-auto mr-auto py-1 px-4 text-slate-800 uppercase text-sm rounded bg-yellow-400 font-bold tracking-wider shadow">Lees meer</button>
                      </div>
                ))}
