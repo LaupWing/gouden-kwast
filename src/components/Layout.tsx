@@ -15,6 +15,7 @@ import { BiMenuAltRight } from "react-icons/bi"
 import { BsSearch } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
 import { LinkType } from "../typings"
+import { useMenuQuery } from "../hooks/useMenuQuery"
 
 const temp_links = [
    {
@@ -109,6 +110,8 @@ const HeaderDesktop = () => {
 const HeaderDesktopDropdown:FC<{
    link: LinkType
 }> = ({ link }) => {
+
+   console.log(useMenuQuery())
    return (
       <Menu 
          as={"div"}
