@@ -69,7 +69,6 @@ const Quote:React.FC<QuoteProps> = ({
                whileInView={{
                   x: 0,
                   opacity: 1,
-                  
                   transition: {
                      delay: 0.3
                   }
@@ -78,7 +77,22 @@ const Quote:React.FC<QuoteProps> = ({
                <Icon className="text-yellow-500" size={40}/>
                <h2 className="text-xl text-yellow-400">{ title }</h2>
             </motion.div>
-            <motion.p className="text-sm">{ description }</motion.p>
+            <motion.p 
+               className="text-sm"
+               initial={{
+                  y: "100%",
+                  opacity: 0,
+               }}
+               whileInView={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                     delay: 0.5
+                  }
+               }}
+            >
+               { description }
+            </motion.p>
          </div>
       </div>
    )
