@@ -82,7 +82,10 @@ const HeaderDesktop = () => {
             <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
                {temp_links.map(link => (
                      link.links?.length! > 0 ? (
-                        <HeaderDesktopDropdown link={link} />
+                        <HeaderDesktopDropdown 
+                           link={link} 
+                           key={link.name}
+                        />
                      ) : (
                         <Link 
                            className="px-4 flex items-center tracking-wider"
@@ -135,7 +138,9 @@ const HeaderDesktopDropdown:FC<{
          >
             <Menu.Items className={"absolute -bottom-1 shadow text-left transform translate-y-full flex flex-col bg-white w-full rounded divide-y"}>
                {link.links!.map(x => 
-                  <Menu.Item>
+                  <Menu.Item
+                     key={x.name}
+                  >
                      {({active}) => (
                         <button className="w-full text-left px-4 py-2">
                            {x.name}
@@ -279,6 +284,7 @@ const Footer = () => {
                   <ul className="flex flex-col flex-1 space-y-2 lg:space-y-0 justify-around">
                      {temp_links.map(link => (
                         <li 
+                           key={link.name}
                            className="text-sm"
                         >
                            { link.name }
