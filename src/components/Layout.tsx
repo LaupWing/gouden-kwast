@@ -113,7 +113,7 @@ const HeaderDesktop = () => {
 }
 
 const HeaderDesktopDropdown:FC<{
-   link: LinkType
+   link: MenuItem
 }> = ({ link }) => {
    return (
       <Menu 
@@ -123,11 +123,11 @@ const HeaderDesktopDropdown:FC<{
          <div className="space-x-2 px-4 flex items-center">
             <Link 
                className="flex items-center tracking-wider"
-               to={link.to}
+               to={link.url!}
                activeClassName="bg-black/10"
-               key={link.name}
+               key={link.id}
             >
-               { link.name }
+               { link.label }
             </Link>
             <Menu.Button>
                <FiChevronDown size={20} />
@@ -143,13 +143,13 @@ const HeaderDesktopDropdown:FC<{
             leaveTo="transform opacity-0 scale-95"
          >
             <Menu.Items className={"absolute -bottom-1 shadow text-left transform translate-y-full flex flex-col bg-white w-full rounded divide-y"}>
-               {link.links!.map(x => 
+               {link.childItems?.nodes.map(x => 
                   <Menu.Item
-                     key={x.name}
+                     key={x.id}
                   >
                      {({active}) => (
                         <button className="w-full text-left px-4 py-2">
-                           {x.name}
+                           {x.id}
                         </button>
                      )}
                   </Menu.Item>
