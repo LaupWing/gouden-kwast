@@ -10,9 +10,3 @@ export interface ProjectType {
    total_cost: Number
    project_image: string
 }
-
-export interface LinkType {
-   name: string
-   to: string
-   links?: LinkType[]
-}

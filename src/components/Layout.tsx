@@ -14,7 +14,6 @@ import { IoArrowForwardCircle, IoClose } from "react-icons/io5"
 import { BiMenuAltRight } from "react-icons/bi"
 import { BsSearch } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
-import { LinkType } from "../typings"
 import { useMenuQuery } from "../hooks/useMenuQuery"
 import { MenuItem } from "../generated/graphql"
 
