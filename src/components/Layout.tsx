@@ -194,11 +194,6 @@ const MobileMenuNav = ({
          },
       },
    }
-
-   const item = {
-      hidden: { scale: 0 },
-      show: { scale: 1 },
-   }
    
    return (
       <motion.div 
@@ -232,41 +227,9 @@ const MobileMenuNav = ({
                animate="show"
             >
                {links.filter(x => !x.parentId).map(link => (
-                  <motion.li
-                     key={link.id}
-                     variants={item}
-                     className="flex flex-col"
-                  >
-                     <div className="flex items-center justify-between">
-                        <Link 
-                           className="flex items-center tracking-wider"
-                           to={link.url!}
-                           activeClassName="text-yellow-500"
-                        >
-                           { link.label }
-                        </Link>
-                        {link.childItems?.nodes?.length! > 0 &&  (
-                           <motion.div
-                              initial={{
-                                 y: "100%",
-                                 opacity: 0
-                              }}
-                              animate={{
-                                 y: "0",
-                                 opacity: 1,
-                                 transition:{
-                                    delay: 1.2
-                                 }
-                              }}
-                           >
-                              <FiChevronDown size={22} />
-                           </motion.div>
-                        )}
-                     </div>
-                     {link.childItems?.nodes?.length! > 0 && (
-                        <MenuNavLinkDropwdown links={link.childItems?.nodes!}/>
-                     )}
-                  </motion.li>
+                  <MobileMenuNavLink
+                     link={link}
+                  />
                ))}
             </motion.ul>
          </nav>
@@ -283,6 +246,7 @@ const MobileMenuNavLink:FC<{
       hidden: { scale: 0 },
       show: { scale: 1 },
    }
+   const [showDropdown, setShowDropdown] = useState(false)
    return (
       <motion.li
          key={link.id}
@@ -310,33 +274,39 @@ const MobileMenuNavLink:FC<{
                         delay: 1.2
                      }
                   }}
+                  onClick={() => setShowDropdown(prev => !prev)}
                >
                   <FiChevronDown size={22} />
                </motion.div>
             )}
          </div>
-         {link.childItems?.nodes?.length! > 0 && (
-            <MenuNavLinkDropwdown links={link.childItems?.nodes!}/>
-         )}
+         <AnimatePresence initial={false}>
+            {(link.childItems?.nodes?.length! > 0 && showDropdown) && (
+               <motion.div 
+                  key={"dropdown"}
+                  initial="collapsed"
+                  animate="open"
+                  exit="collapsed"
+                  className="overflow-hidden"
+                  variants={{
+                     open: { opacity: 1, height: "auto", scale: 1 },
+                     collapsed: { opacity: 0, height: 0, scale: 0.8 }
+                  }}
+                  transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+               >
+                  <ul className="flex flex-col gap-y-4 py-3 text-sm text-slate-700">
+                     {link.childItems!.nodes.map((link: MenuItem) => (
+                        <li
+                           key={link.id}
+                        >
+                           - { link.label }
+                        </li>
+                     ))}
+                  </ul>
+               </motion.div>
+            )}
+         </AnimatePresence>
       </motion.li>
-   )
-}
-
-const MenuNavLinkDropwdown:FC<{
-   links: MenuItem[]
-}> = ({
-   links
-}) =>{
-   return (
-      <ul className="flex flex-col gap-y-4 px-2 my-3 text-sm text-slate-700">
-         {links.map(link => (
-            <li
-               key={link.id}
-            >
-               - { link.label }
-            </li>
-         ))}
-      </ul>
    )
 }
 
