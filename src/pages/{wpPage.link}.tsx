@@ -13,6 +13,7 @@ const PageTemplate = () => {
             maxHeight: '400px'
          }}
       >
+         test
          {/* <div className='z-20 inset-0 bg-neutral-900 bg-opacity-70 absolute flex justify-center items-center uppercase text-white font-bold tracking-wider text-2xl'>
             <h1>
                {data.wpPage.title}
