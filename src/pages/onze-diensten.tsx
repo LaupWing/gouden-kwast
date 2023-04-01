@@ -15,14 +15,22 @@ export default OnzeDienstenPage
 export const Head: HeadFC = () => <title>Onze diensten</title>
 
 export const pageQuery = graphql`
-   query MyQuery {
-      allWpPage(filter: { parentId: { eq: "cG9zdDo5OA==" } }) {
+   query {
+      allWpPage(filter: {parentId: {eq: "cG9zdDo5OA=="}}) {
          nodes {
-            link
-            slug
-            uri
-            title
             parentId
+            onzeDiensten {
+            description
+            }
+            featuredImage {
+            node {
+               localFile {
+                  childImageSharp {
+                  gatsbyImageData(width: 720, placeholder: TRACED_SVG)
+                  }
+               }
+            }
+            }
          }
       }
    }
