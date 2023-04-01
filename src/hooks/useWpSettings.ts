@@ -12,5 +12,5 @@ export const useWpSettings = () => {
          }
       }
    `) 
-   return data.data.wp.generalSettings as GeneralSettings
+   return data.wp.generalSettings as GeneralSettings
 }
