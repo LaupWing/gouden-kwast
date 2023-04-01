@@ -74,8 +74,6 @@ export const Layout:React.FC<React.PropsWithChildren> = ({
 
 const HeaderDesktop = () => {
    const links:MenuItem[] = useMenuQuery() 
-
-   console.log(links)
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
@@ -113,7 +111,6 @@ const HeaderDesktop = () => {
 const HeaderDesktopDropdown:FC<{
    link: MenuItem
 }> = ({ link }) => {
-   
    return (
       <Menu 
          as={"div"}
@@ -187,6 +184,7 @@ const MobileMenuNav = ({
 }: {
    closeDrawer: () => void
 }) => {
+   const links:MenuItem[] = useMenuQuery() 
    const container = {
       hidden: {  },
       show: {
@@ -201,6 +199,7 @@ const MobileMenuNav = ({
       hidden: { scale: 0 },
       show: { scale: 1 },
    }
+   
    return (
       <motion.div 
          className="w-screen h-screen text-slate-800 p-8 bg-white z-[10000] fixed inset-0"
@@ -232,17 +231,17 @@ const MobileMenuNav = ({
                initial="hidden"
                animate="show"
             >
-               {temp_links.map(link => (
+               {links.filter(x => !x.parentId).map(link => (
                   <motion.li
-                     key={link.name}
+                     key={link.id}
                      variants={item}
                   >
                      <Link 
                         className="flex items-center tracking-wider"
-                        to={link.to}
+                        to={link.url!}
                         activeClassName="text-yellow-500"
                      >
-                        { link.name }
+                        { link.label }
                      </Link>
                   </motion.li>
                ))}
