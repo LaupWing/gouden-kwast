@@ -235,37 +235,60 @@ const MobileMenuNav = ({
                   <motion.li
                      key={link.id}
                      variants={item}
-                     className="flex items-center justify-between"
+                     className="flex flex-col"
                   >
-                     <Link 
-                        className="flex items-center tracking-wider"
-                        to={link.url!}
-                        activeClassName="text-yellow-500"
-                     >
-                        { link.label }
-                     </Link>
-                     {link.childItems?.nodes?.length! > 0 &&  (
-                        <motion.div
-                           initial={{
-                              y: "100%",
-                              opacity: 0
-                           }}
-                           animate={{
-                              y: "0",
-                              opacity: 1,
-                              transition:{
-                                 delay: 1.2
-                              }
-                           }}
+                     <div className="flex items-center justify-between">
+                        <Link 
+                           className="flex items-center tracking-wider"
+                           to={link.url!}
+                           activeClassName="text-yellow-500"
                         >
-                           <FiChevronDown size={22} />
-                        </motion.div>
+                           { link.label }
+                        </Link>
+                        {link.childItems?.nodes?.length! > 0 &&  (
+                           <motion.div
+                              initial={{
+                                 y: "100%",
+                                 opacity: 0
+                              }}
+                              animate={{
+                                 y: "0",
+                                 opacity: 1,
+                                 transition:{
+                                    delay: 1.2
+                                 }
+                              }}
+                           >
+                              <FiChevronDown size={22} />
+                           </motion.div>
+                        )}
+                     </div>
+                     {link.childItems?.nodes?.length! > 0 && (
+                        <MenuNavLinkDropwdown links={link.childItems?.nodes!}/>
                      )}
                   </motion.li>
                ))}
             </motion.ul>
          </nav>
       </motion.div>
+   )
+}
+
+const MenuNavLinkDropwdown:FC<{
+   links: MenuItem[]
+}> = ({
+   links
+}) =>{
+   return (
+      <ul className="flex flex-col gap-y-4 px-2 my-3 text-sm text-slate-700">
+         {links.map(link => (
+            <li
+               key={link.id}
+            >
+               - { link.label }
+            </li>
+         ))}
+      </ul>
    )
 }
 
