@@ -2,10 +2,13 @@ import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
 import { Layout } from "../components"
 
-const OnzeDienstenPage: React.FC<PageProps> = ({ data }) => {
+const OnzeDienstenPage: React.FC<PageProps> = ({data, serverData}) => {
+   console.log(data)
    return (
       <Layout>
-         <main className="flex-1 pt-10 bg-slate-500">Tessst</main>
+         <main className="flex-1 pt-10">
+            Tessst
+         </main>
       </Layout>
    )
 }
@@ -15,23 +18,22 @@ export default OnzeDienstenPage
 export const Head: HeadFC = () => <title>Onze diensten</title>
 
 export const pageQuery = graphql`
-   query {
-      allWpPage(filter: {parentId: {eq: "cG9zdDo5OA=="}}) {
+   query DienstenQuery {
+      allWpPage {
          nodes {
             parentId
+            uri
+            featuredImage {
+            node {
+               gatsbyImage(placeholder: TRACED_SVG, width: 720)
+            }
+            }
+            title
             onzeDiensten {
             description
             }
-            featuredImage {
-            node {
-               localFile {
-                  childImageSharp {
-                  gatsbyImageData(width: 720, placeholder: TRACED_SVG)
-                  }
-               }
-            }
-            }
          }
       }
-   }
+      }
+
 `
