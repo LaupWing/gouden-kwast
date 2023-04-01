@@ -16,7 +16,7 @@ import { BsSearch } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
 import { useMenuQuery } from "../hooks/useMenuQuery"
 import { MenuItem } from "../generated/graphql"
-import { getMainMenu } from "../lib/utils"
+import { getMainMenu, parseMenu } from "../lib/utils"
 
 export const Layout:React.FC<React.PropsWithChildren> = ({
    children
@@ -37,6 +37,7 @@ export const Layout:React.FC<React.PropsWithChildren> = ({
 }
 
 const HeaderDesktop = () => {
+   console.log(parseMenu())
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">

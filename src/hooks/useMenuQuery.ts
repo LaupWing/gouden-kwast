@@ -22,6 +22,6 @@ export const useMenuQuery = () => {
             }
          }
       }
-   `) 
+   `)
    return (data.wpMenu.menuItems  as MenuItemConnection).nodes
 }
