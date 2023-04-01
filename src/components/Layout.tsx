@@ -292,7 +292,6 @@ const MobileMenuNavLink:FC<{
                      open: { opacity: 1, height: "auto", scale: 1 },
                      collapsed: { opacity: 0, height: 0, scale: 0.8 }
                   }}
-                  transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
                >
                   <ul className="flex flex-col gap-y-4 py-3 text-sm text-slate-700">
                      {link.childItems!.nodes.map((link: MenuItem) => (
