@@ -7,7 +7,7 @@ export const getMainMenu = () => {
 }
 
 
-export const parseMenu = () => {
+export const parsedMenu = () => {
    const mainMenu = getMainMenu()
    return mainMenu
       .map(x => ({
