@@ -18,7 +18,7 @@ import { MenuItem } from "../generated/graphql"
 import { getMainMenu, parsedMenu } from "../lib/utils"
 
 export const Layout:React.FC<React.PropsWithChildren> = ({
-   children
+   children,
 }) =>{
    const [openDrawer, setOpenDrawer] = useState(false)
 
@@ -71,7 +71,7 @@ const HeaderDesktop = () => {
 }
 
 const HeaderDesktopDropdown:FC<{
-   link: MenuItem
+   link: MenuItem,
 }> = ({ link }) => {
    return (
       <Menu 
@@ -82,7 +82,7 @@ const HeaderDesktopDropdown:FC<{
             <Link 
                className="flex items-center tracking-wider"
                to={link.url!}
-               activeClassName="bg-black/10"
+               activeClassName=""
                key={link.id}
             >
                { link.label }
