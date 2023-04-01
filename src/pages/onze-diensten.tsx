@@ -5,7 +5,7 @@ import { Layout } from "../components"
 const OnzeDienstenPage: React.FC<PageProps> = ({ data }) => {
    return (
       <Layout>
-         <main className="flex-1 pt-10">Tessst</main>
+         <main className="flex-1 pt-10 bg-slate-500">Tessst</main>
       </Layout>
    )
 }
