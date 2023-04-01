@@ -224,7 +224,7 @@ const MobileMenuNav = ({
                onClick={closeDrawer}
             />
          </header>
-         <nav className="grid">
+         <nav className="grid max-w-[60%]">
             <motion.ul 
                className="grid gap-4 py-10"
                variants={container}
@@ -235,6 +235,7 @@ const MobileMenuNav = ({
                   <motion.li
                      key={link.id}
                      variants={item}
+                     className="flex items-center justify-between"
                   >
                      <Link 
                         className="flex items-center tracking-wider"
@@ -243,6 +244,9 @@ const MobileMenuNav = ({
                      >
                         { link.label }
                      </Link>
+                     {link.childItems?.nodes?.length! > 0 &&  (
+                        <FiChevronDown size={22} />
+                     )}
                   </motion.li>
                ))}
             </motion.ul>
