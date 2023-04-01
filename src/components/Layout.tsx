@@ -147,11 +147,9 @@ const HeaderDesktopDropdown:FC<{
                   <Menu.Item
                      key={x.id}
                   >
-                     {({active}) => (
-                        <button className="w-full text-left px-4 py-2">
-                           {x.label}
-                        </button>
-                     )}
+                     <button className="w-full text-left px-4 py-2">
+                        {x.label}
+                     </button>
                   </Menu.Item>
                )}
             </Menu.Items>
