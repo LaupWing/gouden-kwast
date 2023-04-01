@@ -274,6 +274,54 @@ const MobileMenuNav = ({
    )
 }
 
+const MobileMenuNavLink:FC<{
+   link: MenuItem
+}> = ({
+   link
+}) => {
+   const item = {
+      hidden: { scale: 0 },
+      show: { scale: 1 },
+   }
+   return (
+      <motion.li
+         key={link.id}
+         variants={item}
+         className="flex flex-col"
+      >
+         <div className="flex items-center justify-between">
+            <Link 
+               className="flex items-center tracking-wider"
+               to={link.url!}
+               activeClassName="text-yellow-500"
+            >
+               { link.label }
+            </Link>
+            {link.childItems?.nodes?.length! > 0 &&  (
+               <motion.div
+                  initial={{
+                     y: "100%",
+                     opacity: 0
+                  }}
+                  animate={{
+                     y: "0",
+                     opacity: 1,
+                     transition:{
+                        delay: 1.2
+                     }
+                  }}
+               >
+                  <FiChevronDown size={22} />
+               </motion.div>
+            )}
+         </div>
+         {link.childItems?.nodes?.length! > 0 && (
+            <MenuNavLinkDropwdown links={link.childItems?.nodes!}/>
+         )}
+      </motion.li>
+   )
+}
+
 const MenuNavLinkDropwdown:FC<{
    links: MenuItem[]
 }> = ({
