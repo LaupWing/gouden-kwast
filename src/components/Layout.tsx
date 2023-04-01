@@ -148,7 +148,7 @@ const MobileMenuNav = ({
    closeDrawer: () => void
 }) => {
    const container = {
-      hidden: {  },
+      hidden: {},
       show: {
          transition: {
             staggerChildren: 0.1,
