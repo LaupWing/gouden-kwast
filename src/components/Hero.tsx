@@ -32,7 +32,7 @@ const HeroDesktop = () => {
             </div>
          </div>
          <div className="flex-1 relative">
-            <button className="absolute uppercase text-slate-600 font-bold text-sm tracking-wider bottom-0 left-0 w-44 h-24 bg-yellow-400">
+            <button className="absolute uppercase text-slate-500 font-bold text-sm tracking-wider bottom-0 left-0 w-44 h-24 bg-yellow-400">
                Aanvragen
             </button>
             <img
@@ -54,7 +54,7 @@ const HeroMobile = () => {
                <div className="bg-yellow-400 h-full flex items-center justify-center px-6 uppercase text-sm font-bold text-slate-600">
                   Meer info
                </div>
-               <div className="bg-slate-400 flex items-center justify-center px-2 text-white h-full flex-1">
+               <div className="bg-slate-500 flex items-center justify-center px-2 text-white h-full flex-1">
                   <IoArrowForwardCircle size={20}/>
                </div>
             </button>
