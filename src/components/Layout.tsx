@@ -16,43 +16,7 @@ import { BsSearch } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
 import { useMenuQuery } from "../hooks/useMenuQuery"
 import { MenuItem } from "../generated/graphql"
-
-const temp_links = [
-   {
-      to: "/",
-      name: "Home"
-   },
-   {
-      to: "/onze-diensten",
-      name: "Onze diensten",
-      links: [
-         {
-            to: "test1",
-            name: "test1"
-         },
-         {
-            to: "test2",
-            name: "test2"
-         },
-         {
-            to: "test3",
-            name: "test3"
-         },
-      ]
-   },
-   {
-      to: "/portfolio",
-      name: "Portfolio"
-   },
-   {
-      to: "/vacatures",
-      name: "Vactures"
-   },
-   {
-      to: "/contact",
-      name: "Contact"
-   },
-]
+import { getMainMenu } from "../lib/utils"
 
 export const Layout:React.FC<React.PropsWithChildren> = ({
    children
@@ -342,12 +306,12 @@ const Footer = () => {
                <section className="flex flex-col flex-1">
                   <h2 className="text-slate-200 text-xl mb-4">Navigatie</h2>
                   <ul className="flex flex-col flex-1 space-y-2 lg:space-y-0 justify-around">
-                     {temp_links.map(link => (
+                     {getMainMenu().map(link => (
                         <li 
-                           key={link.name}
+                           key={link.id}
                            className="text-sm"
                         >
-                           { link.name }
+                           { link.label }
                         </li>
                      ))}
                   </ul>
