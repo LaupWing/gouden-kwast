@@ -245,7 +245,21 @@ const MobileMenuNav = ({
                         { link.label }
                      </Link>
                      {link.childItems?.nodes?.length! > 0 &&  (
-                        <FiChevronDown size={22} />
+                        <motion.div
+                           initial={{
+                              y: "100%",
+                              opacity: 0
+                           }}
+                           animate={{
+                              y: "0",
+                              opacity: 1,
+                              transition:{
+                                 delay: 1.2
+                              }
+                           }}
+                        >
+                           <FiChevronDown size={22} />
+                        </motion.div>
                      )}
                   </motion.li>
                ))}
