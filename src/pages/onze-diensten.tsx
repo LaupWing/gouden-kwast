@@ -12,17 +12,22 @@ const ContactPage: React.FC<PageProps<{
    console.log(data.allWpPage.nodes)
    return (
       <Layout>
-         <main className="flex-1 p-10 bg-slate-500">
+         <main className="flex-1 p-10 py-20 bg-slate-500">
+            <h2 className="container mx-auto text-slate-100 text-3xl mb-4">Onze diensten</h2>
             <section className="grid grid-cols-3 container mx-auto gap-4">
                {(data.allWpPage.nodes as Page[]).map(item => {
                   return (
-                     <div className="flex flex-col">
-                        <GatsbyImage 
-                           // @ts-ignore
-                           image={getImage(item.featuredImage?.node.gatsbyImage)!}
-                           alt={item.title!}
-                           className="aspect-[3/2]"
-                        />
+                     <div className="flex flex-col shadow bg-slate-700">
+                        <div className="relative">
+                           <GatsbyImage 
+                              // @ts-ignore
+                              image={getImage(item.featuredImage?.node.gatsbyImage)!}
+                              alt={item.title!}
+                              className="aspect-[3/2]"
+                           />
+                           <h2 className="text-yellow-400 p-2 absolute bottom-0 left-0 bg-slate-900/40 backdrop-blur m-1">{item.title!}</h2>
+                        </div>
+                        <p className="text-sm text-slate-100 p-2">{item.onzeDiensten?.description!}</p>
                      </div>
                   )
                })}
