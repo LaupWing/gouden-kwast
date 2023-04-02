@@ -98,5 +98,5 @@
       "./gatsby-node.ts",
       "./gatsby-config.ts",
       "./plugins/**/*"
-   ]
+, "{wpPage.link}.tsx", "test/{wpPage.link}.tsx", "{wpPage.link}.tsx"   ]
 }
