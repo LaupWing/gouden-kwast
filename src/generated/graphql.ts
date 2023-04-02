@@ -12,6 +12,12 @@ export type Scalars = {
   Float: number;
 };
 
+/** A Field Group registered by ACF */
+export type AcfFieldGroup = {
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+};
+
 /** The ActionMonitorAction type */
 export type ActionMonitorAction = ContentNode & DatabaseIdentifier & Node & NodeWithContentEditor & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & {
   __typename?: 'ActionMonitorAction';
@@ -3800,6 +3806,8 @@ export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & 
   modified?: Maybe<Scalars['String']>;
   /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
   modifiedGmt?: Maybe<Scalars['String']>;
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;Onze Diensten&quot; was set to Show in GraphQL. */
+  onzeDiensten?: Maybe<Page_Onzediensten>;
   /**
    * The id field matches the WP_Post-&gt;ID field.
    * @deprecated Deprecated in favor of the databaseId field
@@ -4136,6 +4144,14 @@ export type PageToRevisionConnectionWhereArgs = {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Page_Onzediensten = AcfFieldGroup & {
+  __typename?: 'Page_Onzediensten';
+  description?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
 };
 
 /** An plugin object */
@@ -4858,6 +4874,8 @@ export type PostPostFormatsNodeInput = {
 
 /** The status of the object. */
 export enum PostStatusEnum {
+  /** Objects with the acf-disabled status */
+  AcfDisabled = 'ACF_DISABLED',
   /** Objects with the auto-draft status */
   AutoDraft = 'AUTO_DRAFT',
   /** Objects with the draft status */
