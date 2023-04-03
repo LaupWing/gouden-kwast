@@ -23,6 +23,7 @@
     "framer-motion": "^10.9.1",
     "gatsby": "^5.7.0",
     "gatsby-plugin-image": "^3.8.0",
+    "gatsby-plugin-sass": "^6.8.0",
     "gatsby-plugin-sharp": "^5.8.0",
     "gatsby-source-filesystem": "^5.8.0",
     "gatsby-source-wordpress": "^7.8.0",
@@ -31,7 +32,8 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.7",
     "react-icons": "^4.8.0",
-    "react-responsive-carousel": "^3.2.23"
+    "react-responsive-carousel": "^3.2.23",
+    "sass": "^1.60.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.2.2",

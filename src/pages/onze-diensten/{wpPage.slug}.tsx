@@ -3,6 +3,7 @@ import { Layout } from "~/components"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Page } from "~/generated/graphql"
+import "./page.module.scss"
 
 const OnzeDienstenDetail: React.FC<PageProps<{
    wpPage: Page 
