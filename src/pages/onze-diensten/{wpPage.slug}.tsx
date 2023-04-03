@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const DynamicPage = () => {
-   return <div>DynamicPage</div>
+const OnzeDienstenDetail = () => {
+   return <div>OnzeDienstenDetail</div>
 }
-export default DynamicPage
+export default OnzeDienstenDetail

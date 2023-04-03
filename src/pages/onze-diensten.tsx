@@ -3,7 +3,7 @@ import * as React from "react"
 import { Layout, ServiceCard } from "../components"
 import { Page } from "../generated/graphql"
 
-const ContactPage: React.FC<PageProps<{
+const OnzeDiensten: React.FC<PageProps<{
    allWpPage: {
       nodes: Page[]
    }
@@ -27,7 +27,7 @@ const ContactPage: React.FC<PageProps<{
    )
 }
 
-export default ContactPage
+export default OnzeDiensten
 
 export const Head: HeadFC = () => <title>Onze diensten</title>
 
