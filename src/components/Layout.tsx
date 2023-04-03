@@ -110,7 +110,11 @@ const HeaderDesktopDropdown:FC<{
                   <Menu.Item
                      key={x.id}
                   >
-                     <Link to={x.url!}>
+                     <Link 
+                        to={x.url!}
+                        className="hover:bg-black/5"
+                        activeClassName="bg-black/10"
+                     >
                         <button className="w-full text-left px-4 py-2">
                            {x.label}
                         </button>
