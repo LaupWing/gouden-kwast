@@ -16,6 +16,7 @@ import { BsSearch } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
 import { MenuItem } from "~/generated/graphql"
 import { getMainMenu, parsedMenu } from "~/lib/utils"
+import clsx from "clsx"
 
 export const Layout:React.FC<React.PropsWithChildren> = ({
    children,
@@ -73,16 +74,20 @@ const HeaderDesktop = () => {
 const HeaderDesktopDropdown:FC<{
    link: MenuItem,
 }> = ({ link }) => {
+   const isActive = window.location.pathname.includes(link.url!) 
+   console.log(link)
    return (
       <Menu 
          as={"div"}
          className="relative flex"
       >
-         <div className="space-x-2 px-4 flex items-center">
+         <div className={clsx(
+            "space-x-2 px-4 flex items-center",
+            isActive && "bg-black/10"
+         )}>
             <Link 
                className="flex items-center tracking-wider"
                to={link.url!}
-               activeClassName=""
                key={link.id}
             >
                { link.label }
@@ -105,9 +110,11 @@ const HeaderDesktopDropdown:FC<{
                   <Menu.Item
                      key={x.id}
                   >
-                     <button className="w-full text-left px-4 py-2">
-                        {x.label}
-                     </button>
+                     <Link to={x.url!}>
+                        <button className="w-full text-left px-4 py-2">
+                           {x.label}
+                        </button>
+                     </Link>
                   </Menu.Item>
                )}
             </Menu.Items>
