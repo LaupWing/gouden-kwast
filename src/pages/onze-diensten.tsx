@@ -1,4 +1,4 @@
-import { HeadFC, PageProps, graphql } from "gatsby"
+import { HeadFC, Link, PageProps, graphql } from "gatsby"
 import * as React from "react"
 import { Layout } from "../components"
 import { Page } from "../generated/graphql"
@@ -28,7 +28,11 @@ const ContactPage: React.FC<PageProps<{
                            <h2 className="text-yellow-400 p-2 absolute bottom-0 left-0 bg-slate-900/40 backdrop-blur m-1">{item.title!}</h2>
                         </div>
                         <p className="text-sm text-slate-100 m-2 line-clamp-2">{item.onzeDiensten?.description!}</p>
-                        <button className="py-1 px-4 text-slate-800 uppercase text-sm rounded bg-yellow-400 font-bold tracking-wider shadow mr-auto mt-auto ml-1 mb-1">Lees meer</button>
+                        <Link to={item.uri!}>
+                           <button className="py-1 px-4 text-slate-800 uppercase text-sm rounded bg-yellow-400 font-bold tracking-wider shadow mr-auto mt-auto ml-1 mb-1">
+                              Lees meer
+                           </button>
+                        </Link>
                      </div>
                   )
                })}
