@@ -3748,6 +3748,8 @@ export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & 
   commentStatus?: Maybe<Scalars['String']>;
   /** Connection between the Page type and the Comment type */
   comments?: Maybe<PageToCommentConnection>;
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;contact information&quot; was set to Show in GraphQL. */
+  contactInformation?: Maybe<Page_Contactinformation>;
   /** The content of the post. */
   content?: Maybe<Scalars['String']>;
   /** Connection between the ContentNode type and the ContentType type */
@@ -4144,6 +4146,21 @@ export type PageToRevisionConnectionWhereArgs = {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>;
+};
+
+/** Field Group */
+export type Page_Contactinformation = AcfFieldGroup & {
+  __typename?: 'Page_Contactinformation';
+  city?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  facebook?: Maybe<Scalars['String']>;
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>;
+  instagram?: Maybe<Scalars['String']>;
+  linkedin?: Maybe<Scalars['String']>;
+  phonenumber?: Maybe<Scalars['Float']>;
+  streetAndStreetnumber?: Maybe<Scalars['String']>;
+  zipcode?: Maybe<Scalars['String']>;
 };
 
 /** Field Group */
