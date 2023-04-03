@@ -66,13 +66,13 @@ const ServicesSectionMobile:React.FC<{
 
    return (
       <section className="grid md:hidden grid-cols-1 container mx-auto gap-4">
-         {services.map((service) => {
+         {services.map((service, i) => {
             return (
                <motion.div
                   key={service.id}
                   initial={{
                      opacity: 0,
-                     x:  "50%"
+                     x: i % 2 === 0 ?  "50%": "-50%"
                   }}
                   whileInView={{
                      opacity: 1,

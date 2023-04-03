@@ -222,7 +222,7 @@ const MobileMenuNavLink:FC<{
       hidden: { scale: 0 },
       show: { scale: 1 },
    }
-   const isActive = window.location.pathname.includes(link.url!) 
+   const isActive = typeof window !== undefined && window.location.pathname.includes(link.url!) 
    const [showDropdown, setShowDropdown] = useState(false)
    return (
       <motion.li
