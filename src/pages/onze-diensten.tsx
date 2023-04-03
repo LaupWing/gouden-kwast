@@ -1,15 +1,13 @@
-import { HeadFC, Link, PageProps, graphql } from "gatsby"
+import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
 import { Layout, ServiceCard } from "../components"
 import { Page } from "../generated/graphql"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const ContactPage: React.FC<PageProps<{
    allWpPage: {
       nodes: Page[]
    }
 }>> = ({ data }) => {
-   console.log(data.allWpPage.nodes)
    return (
       <Layout>
          <main className="flex-1 p-8 py-12 md:p-10 md:py-20 bg-slate-600">
