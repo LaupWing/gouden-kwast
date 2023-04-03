@@ -28,6 +28,7 @@ export const pageQuery = graphql`
          nodes {
             parentId
             uri
+            id
             featuredImage {
                node {
                   gatsbyImage(placeholder: TRACED_SVG, width: 720)

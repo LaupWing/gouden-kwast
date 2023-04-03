@@ -81,7 +81,6 @@ const ServicesSectionMobile:React.FC<{
                >
                   <ServiceCard
                      service={service}
-                     key={service.id}
                   />
                </motion.div>
             )

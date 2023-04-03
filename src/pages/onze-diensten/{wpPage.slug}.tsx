@@ -45,6 +45,7 @@ export const pageQuery = graphql`
       wpPage(id: {eq: $id}) {
          content
          title
+         id
          featuredImage {
             node {
                gatsbyImage(placeholder: TRACED_SVG, width: 720)
