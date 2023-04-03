@@ -325,11 +325,13 @@ const Footer = () => {
                <ul className="text-sm space-y-2">
                   <li className="flex">
                      <AiFillPhone className="mr-1 text-yellow-500" size={22} />
-                     06123456789
+                     {contact!.contactInformation?.phonenumber}
                   </li>
                   <li className="flex">
-                     <MdEmail className="mr-1 text-yellow-500" size={22} />
-                     bastiaan@goudenkwast.nl
+                     <a className="flex" href={`mailto: ${contact!.contactInformation?.email}`}>
+                        <MdEmail className="mr-1 text-yellow-500" size={22} />
+                        {contact!.contactInformation?.email}
+                     </a>
                   </li>
                </ul>
             </section>
