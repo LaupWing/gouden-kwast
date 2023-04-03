@@ -1,27 +1,24 @@
 import { graphql, useStaticQuery } from "gatsby"
-import { MenuItemConnection } from "~/generated/graphql"
+import { Page } from "~/generated/graphql"
 
-export const useMenuQuery = () => {
+export const useContactInfo = () => {
    const data = useStaticQuery(graphql`
       query {
-         wpMenu(name: {eq: "mainMenu"}){
-            menuItems {
-               nodes {
-                  label
-                  parentId
-                  id
-                  url
-                  childItems {
-                     nodes {
-                        id
-                        url
-                        label
-                     }
-                  }
-               }
+         wpPage(id: {eq: "cG9zdDo3"}) {
+            title
+            id
+            contactInformation {
+               city
+               email
+               facebook
+               instagram
+               linkedin
+               phonenumber
+               streetAndStreetnumber
+               zipcode
             }
          }
       }
    `)
-   return (data.wpMenu.menuItems  as MenuItemConnection).nodes
+   return data.wpPage  as Page
 }
