@@ -25,6 +25,14 @@ const OnzeDienstenDetail: React.FC<PageProps<{
                   className="w-full object-cover max-h-60 h-[30vh]"
                />
             </div>
+            <section className="py-10">
+               <div
+                  className="container mx-auto"
+                  dangerouslySetInnerHTML={{
+                     __html: data.wpPage.content!
+                  }}
+               />
+            </section>
          </main>
       </Layout>
    )
