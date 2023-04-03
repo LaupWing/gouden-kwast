@@ -18,12 +18,14 @@ export const ServiceCard:FC<{service: Page}> = ({
             />
             <h2 className="text-yellow-400 p-2 absolute bottom-0 left-0 bg-slate-900/40 backdrop-blur m-1">{service.title!}</h2>
          </div>
-         <p className="text-sm text-slate-100 m-2 line-clamp-2">{service.onzeDiensten?.description!}</p>
-         <Link className="mr-auto mt-auto ml-1 mb-1" to={service.uri!}>
-            <button className="btn-primary">
-               Lees meer
-            </button>
-         </Link>
+         <div className="flex flex-col flex-1 p-2">
+            <p className="text-sm text-slate-100 m-2 line-clamp-2">{service.onzeDiensten?.description!}</p>
+            <Link className="mr-auto mt-auto ml-1 mb-1" to={service.uri!}>
+               <button className="btn-primary">
+                  Lees meer
+               </button>
+            </Link>
+         </div>
       </div>
    )
 }
