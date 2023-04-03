@@ -251,7 +251,15 @@ const MobileMenuNavLink:FC<{
                   }}
                   onClick={() => setShowDropdown(prev => !prev)}
                >
-                  <FiChevronDown size={22} />
+                  <FiChevronDown 
+                     className={clsx(
+                        "transform duration-200",
+                        showDropdown 
+                           ? "rotate-180"
+                           : "rotate-0"
+                     )}
+                     size={22} 
+                  />
                </motion.div>
             )}
          </div>
