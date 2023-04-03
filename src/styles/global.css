@@ -15,6 +15,12 @@
    }
 }
 
+@layer components {
+   .btn-primary {
+      @apply py-1 px-4 text-slate-800 uppercase text-sm rounded bg-yellow-400 font-bold tracking-wider shadow;
+   }
+}
+
 .control-dots{
    margin: 0!important;
    transform: translateY(150%);

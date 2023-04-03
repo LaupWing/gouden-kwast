@@ -20,7 +20,7 @@ export const ServiceCard:FC<{service: Page}> = ({
          </div>
          <p className="text-sm text-slate-100 m-2 line-clamp-2">{service.onzeDiensten?.description!}</p>
          <Link className="mr-auto mt-auto ml-1 mb-1" to={service.uri!}>
-            <button className="py-1 px-4 text-slate-800 uppercase text-sm rounded bg-yellow-400 font-bold tracking-wider shadow">
+            <button className="btn-primary">
                Lees meer
             </button>
          </Link>
