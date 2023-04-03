@@ -46,21 +46,21 @@ const HeaderDesktop = () => {
             </div>
             <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
                {parsedMenu().map(link => (
-                     link.childItems?.nodes.length! > 0 ? (
-                        <HeaderDesktopDropdown 
-                           link={link} 
-                           key={link.id}
-                        />
-                     ) : (
-                        <Link 
-                           className="px-4 flex items-center tracking-wider"
-                           to={link.url!}
-                           activeClassName="bg-black/10"
-                           key={link.id}
-                        >
-                           { link.label }
-                        </Link>
-                     )
+                  link.childItems?.nodes.length! > 0 ? (
+                     <HeaderDesktopDropdown 
+                        link={link} 
+                        key={link.id}
+                     />
+                  ) : (
+                     <Link 
+                        className="px-4 flex items-center tracking-wider"
+                        to={link.url!}
+                        activeClassName="bg-black/10"
+                        key={link.id}
+                     >
+                        { link.label }
+                     </Link>
+                  )
                ))}
                <div className="bg-yellow-400 tracking-wide flex items-center justify-center px-10 text-slate-600">
                   Bel: 061234567
@@ -75,7 +75,7 @@ const HeaderDesktopDropdown:FC<{
    link: MenuItem,
 }> = ({ link }) => {
    const isActive = window.location.pathname.includes(link.url!) 
-   console.log(link)
+   
    return (
       <Menu 
          as={"div"}
@@ -215,6 +215,7 @@ const MobileMenuNavLink:FC<{
       hidden: { scale: 0 },
       show: { scale: 1 },
    }
+   const isActive = window.location.pathname.includes(link.url!) 
    const [showDropdown, setShowDropdown] = useState(false)
    return (
       <motion.li
@@ -224,7 +225,12 @@ const MobileMenuNavLink:FC<{
       >
          <div className="flex items-center justify-between">
             <Link 
-               className="flex items-center tracking-wider"
+               className={
+                  clsx(
+                     "flex items-center tracking-wider",
+                     isActive && link.childItems?.nodes!.length! > 0 && "text-yellow-400" 
+                  )
+               }
                to={link.url!}
                activeClassName="text-yellow-500"
             >
@@ -264,11 +270,14 @@ const MobileMenuNavLink:FC<{
                >
                   <ul className="flex flex-col gap-y-4 py-3 text-sm text-slate-700">
                      {link.childItems!.nodes.map((link: MenuItem) => (
-                        <li
+                        <Link 
+                           to={link.url!}
                            key={link.id}
                         >
-                           - { link.label }
-                        </li>
+                           <li>
+                              - { link.label }
+                           </li>
+                        </Link>
                      ))}
                   </ul>
                </motion.div>
