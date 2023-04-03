@@ -23,7 +23,7 @@ export const Layout:React.FC<React.PropsWithChildren> = ({
    children,
 }) =>{
    const [openDrawer, setOpenDrawer] = useState(false)
-
+   
    return (
       <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
          <HeaderDesktop />
@@ -77,7 +77,7 @@ const HeaderDesktop = () => {
 const HeaderDesktopDropdown:FC<{
    link: MenuItem,
 }> = ({ link }) => {
-   const isActive = window.location.pathname.includes(link.url!) 
+   // const isActive = window.location.pathname.includes(link.url!) 
    
    return (
       <Menu 
@@ -86,7 +86,7 @@ const HeaderDesktopDropdown:FC<{
       >
          <div className={clsx(
             "space-x-2 px-4 flex items-center",
-            isActive && "bg-black/10"
+            false && "bg-black/10"
          )}>
             <Link 
                className="flex items-center tracking-wider"
