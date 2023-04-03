@@ -352,15 +352,21 @@ const Footer = () => {
                <section className="flex flex-col flex-1 flex-shrink-0 whitespace-nowrap">
                   <h2 className="text-slate-200 text-xl mb-4">Social Media</h2>
                   <ul className="flex flex-col flex-1 justify-around space-y-3 lg:space-y-0">
-                     <li className="text-sm flex items-center">
-                        <AiFillInstagram size={24} className="mr-2 text-yellow-500" /> Instagram
-                     </li>
-                     <li className="text-sm flex items-center">
-                        <FaFacebookSquare size={24} className="mr-2 text-yellow-500" /> Facebook
-                     </li>
-                     <li className="text-sm flex items-center">
-                        <FaLinkedin size={24} className="mr-2 text-yellow-500" /> LinkedIn
-                     </li>
+                     <a target="_blank" href={contact!.contactInformation?.instagram!}>
+                        <li className="text-sm flex items-center">
+                           <AiFillInstagram size={24} className="mr-2 text-yellow-500" /> Instagram
+                        </li>
+                     </a>
+                     <a target="_blank" href={contact!.contactInformation?.facebook!}>
+                        <li className="text-sm flex items-center">
+                           <FaFacebookSquare size={24} className="mr-2 text-yellow-500" /> Facebook
+                        </li>
+                     </a>
+                     <a target="_blank" href={contact!.contactInformation?.linkedin!}>
+                        <li className="text-sm flex items-center">
+                           <FaLinkedin size={24} className="mr-2 text-yellow-500" /> LinkedIn
+                        </li>
+                     </a>
                   </ul>
                </section>
             </div>
