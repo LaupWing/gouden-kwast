@@ -1,7 +1,7 @@
 import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { Layout, ServiceCard } from "../components"
-import { Page } from "../generated/graphql"
+import { Layout, ServiceCard } from "~/components"
+import { Page } from "~/generated/graphql"
 
 const OnzeDiensten: React.FC<PageProps<{
    allWpPage: {

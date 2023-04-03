@@ -1,3 +1,5 @@
+const path = require("path")
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -25,5 +27,11 @@ module.exports = {
          },
          __key: "images",
       },
+      {
+         resolve: "gatsby-plugin-root-import",
+         options: {
+            "~": path.join(__dirname, "src")
+         }
+      }
    ],
 }

@@ -1,6 +1,11 @@
 import * as React from "react"
+import { Layout } from "../../components"
 
 const OnzeDienstenDetail = () => {
-   return <div>OnzeDienstenDetail</div>
+   return (
+      <Layout>
+         
+      </Layout>
+   )
 }
 export default OnzeDienstenDetail
