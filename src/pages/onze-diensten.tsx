@@ -1,6 +1,6 @@
 import { HeadFC, Link, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { Layout } from "../components"
+import { Layout, ServiceCard } from "../components"
 import { Page } from "../generated/graphql"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -17,23 +17,10 @@ const ContactPage: React.FC<PageProps<{
             <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 container mx-auto gap-4">
                {(data.allWpPage.nodes as Page[]).map(item => {
                   return (
-                     <div className="flex flex-col shadow bg-slate-800">
-                        <div className="relative">
-                           <GatsbyImage 
-                              // @ts-ignore
-                              image={getImage(item.featuredImage?.node.gatsbyImage)!}
-                              alt={item.title!}
-                              className="aspect-[3/2]"
-                           />
-                           <h2 className="text-yellow-400 p-2 absolute bottom-0 left-0 bg-slate-900/40 backdrop-blur m-1">{item.title!}</h2>
-                        </div>
-                        <p className="text-sm text-slate-100 m-2 line-clamp-2">{item.onzeDiensten?.description!}</p>
-                        <Link to={item.uri!}>
-                           <button className="py-1 px-4 text-slate-800 uppercase text-sm rounded bg-yellow-400 font-bold tracking-wider shadow mr-auto mt-auto ml-1 mb-1">
-                              Lees meer
-                           </button>
-                        </Link>
-                     </div>
+                     <ServiceCard
+                        service={item}
+                        key={item.id}
+                     />
                   )
                })}
             </section>
