@@ -25,7 +25,10 @@ const OnzeDienstenDetail: React.FC<PageProps<{
                   className="w-full object-cover max-h-60 h-[30vh]"
                />
             </div>
-            <section className="py-10">
+            <section 
+               className="py-10"
+               id="page"
+            >
                <div
                   className="container mx-auto"
                   dangerouslySetInnerHTML={{
