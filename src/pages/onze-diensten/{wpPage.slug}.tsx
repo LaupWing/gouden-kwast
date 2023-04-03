@@ -3,7 +3,7 @@ import { Layout } from "~/components"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Page } from "~/generated/graphql"
-import "./page.module.scss"
+import "./page.scss"
 
 const OnzeDienstenDetail: React.FC<PageProps<{
    wpPage: Page 
@@ -26,7 +26,7 @@ const OnzeDienstenDetail: React.FC<PageProps<{
                   className="w-full object-cover max-h-60 h-[30vh]"
                />
             </div>
-            <section className="py-10 px-6">
+            <section id="page" className="py-10 px-6">
                <div
                   className="container mx-auto"
                   dangerouslySetInnerHTML={{
