@@ -77,7 +77,7 @@ const HeaderDesktop = () => {
 const HeaderDesktopDropdown:FC<{
    link: MenuItem,
 }> = ({ link }) => {
-   // const isActive = window.location.pathname.includes(link.url!) 
+   // const isActive = typeof window !== undefined && window.location.pathname.includes(link.url!)
    
    return (
       <Menu 
@@ -222,7 +222,6 @@ const MobileMenuNavLink:FC<{
       hidden: { scale: 0 },
       show: { scale: 1 },
    }
-   const isActive = typeof window !== undefined && window.location.pathname.includes(link.url!) 
    const [showDropdown, setShowDropdown] = useState(false)
    return (
       <motion.li
@@ -232,12 +231,7 @@ const MobileMenuNavLink:FC<{
       >
          <div className="flex items-center justify-between">
             <Link 
-               className={
-                  clsx(
-                     "flex items-center tracking-wider",
-                     isActive && link.childItems?.nodes!.length! > 0 && "text-yellow-400" 
-                  )
-               }
+               className={"flex items-center tracking-wider"}
                to={link.url!}
                activeClassName="text-yellow-500"
             >
