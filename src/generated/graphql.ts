@@ -4158,7 +4158,7 @@ export type Page_Contactinformation = AcfFieldGroup & {
   fieldGroupName?: Maybe<Scalars['String']>;
   instagram?: Maybe<Scalars['String']>;
   linkedin?: Maybe<Scalars['String']>;
-  phonenumber?: Maybe<Scalars['Float']>;
+  phonenumber?: Maybe<Scalars['String']>;
   streetAndStreetnumber?: Maybe<Scalars['String']>;
   zipcode?: Maybe<Scalars['String']>;
 };

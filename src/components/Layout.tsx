@@ -17,6 +17,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { MenuItem } from "~/generated/graphql"
 import { getMainMenu, parsedMenu } from "~/lib/utils"
 import clsx from "clsx"
+import { useContactInfo } from "~/hooks/useContactInfo"
 
 export const Layout:React.FC<React.PropsWithChildren> = ({
    children,
@@ -37,6 +38,8 @@ export const Layout:React.FC<React.PropsWithChildren> = ({
 }
 
 const HeaderDesktop = () => {
+   const contact = useContactInfo()
+   
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
@@ -63,7 +66,7 @@ const HeaderDesktop = () => {
                   )
                ))}
                <div className="bg-yellow-400 tracking-wide flex items-center justify-center px-10 text-slate-600">
-                  Bel: 061234567
+                  Bel: {contact.contactInformation?.phonenumber!}
                </div>
             </ul>
          </nav>
@@ -301,6 +304,7 @@ const MobileMenuNavLink:FC<{
 }
 
 const Footer = () => {
+   const contact = useContactInfo()
    return (
       <footer className="bg-slate-700 flex flex-col items-center">
          <div className="container py-10 px-6 lg:px-0 flex lg:flex-row flex-col justify-between lg:items-center items-start">
@@ -314,8 +318,8 @@ const Footer = () => {
             <section className="space-y-6">
                <h1 className="text-slate-200 text-xl">Gouden kwast</h1>
                <ul className="text-sm space-y-2">
-                  <li>Vredenoord 109</li>
-                  <li>1852 WJ, HEILOO</li>
+                  <li>{contact.contactInformation!.streetAndStreetnumber!}</li>
+                  <li className="uppercase">{contact!.contactInformation!.zipcode}, {contact!.contactInformation?.city}</li>
                   <li>KVK 12345678910</li>
                </ul>
                <ul className="text-sm space-y-2">
