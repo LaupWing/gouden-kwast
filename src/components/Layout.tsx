@@ -281,6 +281,7 @@ const MobileMenuNavLink:FC<{
                         <Link 
                            to={link.url!}
                            key={link.id}
+                           activeClassName="text-yellow-400"
                         >
                            <li>
                               - { link.label }
