@@ -1,7 +1,7 @@
 import * as React from "react"
 import type { FC } from "react"
 import { Link } from "gatsby"
-import { Page } from "../generated/graphql"
+import { Page } from "~/generated/graphql"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const ServiceCard:FC<{service: Page}> = ({

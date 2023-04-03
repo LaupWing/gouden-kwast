@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
-import { MenuItemConnection } from "../generated/graphql"
+import { MenuItemConnection } from "~/generated/graphql"
 
 export const useMenuQuery = () => {
    const data = useStaticQuery(graphql`

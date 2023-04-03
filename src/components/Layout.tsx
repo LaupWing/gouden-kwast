@@ -14,8 +14,8 @@ import { IoArrowForwardCircle, IoClose } from "react-icons/io5"
 import { BiMenuAltRight } from "react-icons/bi"
 import { BsSearch } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
-import { MenuItem } from "../generated/graphql"
-import { getMainMenu, parsedMenu } from "../lib/utils"
+import { MenuItem } from "~/generated/graphql"
+import { getMainMenu, parsedMenu } from "~/lib/utils"
 
 export const Layout:React.FC<React.PropsWithChildren> = ({
    children,

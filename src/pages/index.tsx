@@ -1,9 +1,9 @@
 import type { HeadFC, PageProps } from "gatsby"
 import * as React from "react"
-import Hero from "../components/Hero"
-import { Layout, RecentWork } from "../components"
-import Quotes from "../components/Quotes"
-import RequestForm from "../components/RequestForm"
+import Hero from "~/components/Hero"
+import { Layout, RecentWork } from "~/components"
+import Quotes from "~/components/Quotes"
+import RequestForm from "~/components/RequestForm"
 
 const IndexPage: React.FC<PageProps> = () => {
    return (

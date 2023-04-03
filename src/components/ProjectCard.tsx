@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { FC } from "react"
-import type { ProjectType } from "../typings"
+import type { ProjectType } from "~/typings"
 
 export const ProjectCard:FC<{
    project: ProjectType

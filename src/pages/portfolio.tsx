@@ -1,6 +1,6 @@
 import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { Layout } from "../components"
+import { Layout } from "~/components"
 
 const OnzeDienstenPage: React.FC<PageProps> = ({data, serverData}) => {
    console.log(data)
