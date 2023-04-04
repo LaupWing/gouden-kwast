@@ -39,7 +39,7 @@ const ServicesSectionDesktop:React.FC<{
 
    return (
       <motion.section 
-         className="hidden md:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 container mx-auto gap-4"
+         className="hidden md:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 container mx-auto gap-4 overflow-hidden"
          variants={container}
          initial="hidden"
          animate="show"
@@ -65,7 +65,7 @@ const ServicesSectionMobile:React.FC<{
 }> = ({services}) => {
 
    return (
-      <section className="grid md:hidden grid-cols-1 container mx-auto gap-4">
+      <section className="grid md:hidden grid-cols-1 container mx-auto gap-4 overflow-hidden">
          {services.map((service, i) => {
             return (
                <motion.div
