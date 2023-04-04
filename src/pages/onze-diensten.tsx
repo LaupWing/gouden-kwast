@@ -1,6 +1,6 @@
 import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { Layout, ServicesSection } from "~/components"
+import { ContactBanner, Layout, ServicesSection } from "~/components"
 import { Page } from "~/generated/graphql"
 
 const OnzeDiensten: React.FC<PageProps<{
@@ -14,6 +14,7 @@ const OnzeDiensten: React.FC<PageProps<{
             <h2 className="container mx-auto text-slate-100 text-3xl mb-4">Onze diensten</h2>
             <ServicesSection services={data.allWpPage.nodes} />
          </main>
+         <ContactBanner />
       </Layout>
    )
 }

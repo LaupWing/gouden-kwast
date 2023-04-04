@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
-import { MenuItemConnection, PostConnection } from "~/generated/graphql"
+import { PostConnection } from "~/generated/graphql"
 
 export const useBlogQuery = () => {
    const data = useStaticQuery(graphql`
@@ -28,5 +28,6 @@ export const useBlogQuery = () => {
          }
       }
    `)
+   
    return (data.allWpPost  as PostConnection).nodes
 }
