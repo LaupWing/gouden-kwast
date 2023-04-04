@@ -2,10 +2,9 @@ import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
 import { Layout } from "~/components"
 
-const OnzeDienstenPage: React.FC<PageProps> = ({data, serverData}) => {
-   console.log(data)
+const OnzeDienstenPage: React.FC<PageProps> = ({data, location}) => {
    return (
-      <Layout>
+      <Layout location={location}>
          <main className="flex-1 pt-10">
             Tessst
          </main>

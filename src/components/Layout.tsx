@@ -20,15 +20,16 @@ import clsx from "clsx"
 import { useContactInfo } from "~/hooks/useContactInfo"
 
 export const Layout:React.FC<{
-   children: React.ReactNode
+   children: React.ReactNode,
+   location?: Location
 }> = ({
    children,
+   location
 }) =>{
    const [openDrawer, setOpenDrawer] = useState(false)
-   
    return (
       <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
-         <HeaderDesktop />
+         <HeaderDesktop location={location} />
          <HeaderMobile openDrawer={() => setOpenDrawer(true)} />
          <AnimatePresence>
             {openDrawer && <MobileMenuNav closeDrawer={() => setOpenDrawer(false)} />}
@@ -39,9 +40,10 @@ export const Layout:React.FC<{
    )
 }
 
-const HeaderDesktop = () => {
+const HeaderDesktop:FC<{location?: Location}> = ({
+   location
+}) => {
    const contact = useContactInfo()
-   
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
@@ -55,6 +57,7 @@ const HeaderDesktop = () => {
                      <HeaderDesktopDropdown 
                         link={link} 
                         key={link.id}
+                        location={location}
                      />
                   ) : (
                      <Link 
@@ -78,8 +81,9 @@ const HeaderDesktop = () => {
 
 const HeaderDesktopDropdown:FC<{
    link: MenuItem,
+   location?: Location
 }> = ({ link }) => {
-   // const isActive = typeof window !== undefined && window.location.pathname.includes(link.url!)
+   const isActive = location.pathname.includes(link.url!)
    
    return (
       <Menu 
@@ -88,7 +92,7 @@ const HeaderDesktopDropdown:FC<{
       >
          <div className={clsx(
             "space-x-2 px-4 flex items-center",
-            false && "bg-black/10"
+            isActive && "bg-black/10"
          )}>
             <Link 
                className="flex items-center tracking-wider"
