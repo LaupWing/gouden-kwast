@@ -7,6 +7,7 @@ export const useBlogQuery = () => {
          allWpPost(sort: {date: ASC}) {
             nodes {
                excerpt
+               title
                tags {
                   nodes {
                      name

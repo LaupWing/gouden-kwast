@@ -21,9 +21,11 @@ export const RecentWork = () => {
 }
 
 const CarouselSmall = () => {
+   const blogs = useBlogQuery()
+   console.log(blogs)
    return (
       <Carousel className="md:hidden" showThumbs={false} showStatus={false}>
-         {data.map((x, i) => (
+         {blogs.map((x, i) => (
             <ProjectCard
                project={x}
                key={i}
@@ -46,6 +48,7 @@ const DynamicCarousel = ({
       cardLength === 2 && "grid-cols-2", 
       cardLength === 3 && "grid-cols-3", 
    )
+   const blogs = useBlogQuery()
    
    return (
       <Carousel className={className} showThumbs={false} showStatus={false}>
@@ -54,7 +57,7 @@ const DynamicCarousel = ({
                className={styles}
                key={i}
             >
-               {data
+               {blogs
                   .filter((_, i2) => (i2 < ((i + 1) * cardLength)) && (i2 >= ((i) * cardLength)))
                   .map((x, i2) => (
                      <ProjectCard
