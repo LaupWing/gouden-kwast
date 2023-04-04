@@ -3,8 +3,11 @@ import data from "../dummy/projects.json"
 import clsx from "clsx"
 import { Carousel } from "react-responsive-carousel"
 import { ProjectCard } from "./ProjectCard"
+import { useBlogQuery } from "~/hooks/useBlogQuery"
 
 export const RecentWork = () => {
+   const blogs = useBlogQuery()
+   console.log(blogs)
    return (
       <section className="py-24 flex flex-col items-center bg-slate-700">
          <div className="container p-6 pt-4 pb-10">

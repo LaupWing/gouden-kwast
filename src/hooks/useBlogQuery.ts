@@ -1,10 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby"
-import { MenuItemConnection } from "~/generated/graphql"
+import { MenuItemConnection, PostConnection } from "~/generated/graphql"
 
 export const useBlogQuery = () => {
    const data = useStaticQuery(graphql`
       query {
-         allWpPost {
+         allWpPost(sort: {date: ASC}) {
             nodes {
                excerpt
                tags {
@@ -17,7 +17,7 @@ export const useBlogQuery = () => {
                   node {
                      localFile {
                         childImageSharp {
-                        gatsbyImageData(width: 720, placeholder: TRACED_SVG)
+                           gatsbyImageData(width: 720, placeholder: TRACED_SVG)
                         }
                      }
                      slug
@@ -28,5 +28,5 @@ export const useBlogQuery = () => {
          }
       }
    `)
-   return (data.wpMenu.menuItems  as MenuItemConnection).nodes
+   return (data.allWpPost  as PostConnection).nodes
 }
