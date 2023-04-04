@@ -49,7 +49,8 @@ const HeaderDesktop:FC<{location: Location}> = ({
          <nav className="flex items-start relative">
             <div className="w-44 h-28 bg-slate-600 text-yellow-400 flex flex-col items-center justify-center absolute top-0 left-0">
                <HiPaintBrush size={30} />
-               <h1 className="flex flex-col font-display items-center leading-4"><span>Gouden</span>  <span>Kwast</span></h1>
+               <h1 className="flex flex-col font-display items-center leading-4">
+                  <span>Gouden</span>  <span>Kwast</span></h1>
             </div>
             <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
                {parsedMenu().map(link => (
@@ -82,7 +83,7 @@ const HeaderDesktop:FC<{location: Location}> = ({
 const HeaderDesktopDropdown:FC<{
    link: MenuItem,
    location: Location
-}> = ({ link }) => {
+}> = ({ link, location }) => {
    const isActive = location.pathname.includes(link.url!)
    
    return (
@@ -137,10 +138,10 @@ const HeaderDesktopDropdown:FC<{
 }
 
 
-const HeaderMobile = ({
-   openDrawer
-}: {
+const HeaderMobile:FC<{
    openDrawer: () => void
+}> = ({
+   openDrawer,
 }) => {
    return (
       <header className="w-full lg:hidden flex justify-between items-center text-white sticky top-0 bg-slate-800 z-[1000] p-3 px-4">
@@ -161,10 +162,10 @@ const HeaderMobile = ({
    )
 }
 
-const MobileMenuNav = ({
-   closeDrawer
-}: {
+const MobileMenuNav:FC<{
    closeDrawer: () => void
+}> = ({
+   closeDrawer
 }) => {
    const container = {
       hidden: {},
