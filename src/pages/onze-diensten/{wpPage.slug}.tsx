@@ -6,11 +6,11 @@ import { Page } from "~/generated/graphql"
 import "./page.scss"
 
 const OnzeDienstenDetail: React.FC<PageProps<{
-   wpPage: Page 
-}>> = ({ data }) => {
+   wpPage: Page
+}>> = ({ data, location }) => {
    
    return (
-      <Layout>
+      <Layout location={location}>
          <main className="flex-1 bg-slate-200">
             <div className="relative flex">
                <div className="absolute inset-0 bg-slate-200/40 z-50"/>
