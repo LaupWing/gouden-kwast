@@ -21,7 +21,7 @@ import { useContactInfo } from "~/hooks/useContactInfo"
 
 export const Layout:React.FC<{
    children: React.ReactNode,
-   location?: Location
+   location: Location
 }> = ({
    children,
    location
@@ -40,7 +40,7 @@ export const Layout:React.FC<{
    )
 }
 
-const HeaderDesktop:FC<{location?: Location}> = ({
+const HeaderDesktop:FC<{location: Location}> = ({
    location
 }) => {
    const contact = useContactInfo()
@@ -81,7 +81,7 @@ const HeaderDesktop:FC<{location?: Location}> = ({
 
 const HeaderDesktopDropdown:FC<{
    link: MenuItem,
-   location?: Location
+   location: Location
 }> = ({ link }) => {
    const isActive = location.pathname.includes(link.url!)
    
