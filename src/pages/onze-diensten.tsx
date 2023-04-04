@@ -1,13 +1,14 @@
 import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { Layout, ServiceCard, ServicesSection } from "~/components"
+import { Layout, ServicesSection } from "~/components"
 import { Page } from "~/generated/graphql"
 
 const OnzeDiensten: React.FC<PageProps<{
    allWpPage: {
       nodes: Page[]
    }
-}>> = ({ data }) => {
+}>> = ({ data, location }) => {
+   console.log(location)
    return (
       <Layout>
          <main className="flex-1 p-8 py-12 md:p-10 md:py-20 bg-slate-600">
