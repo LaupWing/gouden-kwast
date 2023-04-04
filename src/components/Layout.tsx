@@ -20,16 +20,14 @@ import clsx from "clsx"
 import { useContactInfo } from "~/hooks/useContactInfo"
 
 export const Layout:React.FC<{
-   children: React.ReactNode,
-   location: Location
+   children: React.ReactNode
 }> = ({
-   children,
-   location
+   children
 }) =>{
    const [openDrawer, setOpenDrawer] = useState(false)
    return (
       <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
-         <HeaderDesktop location={location} />
+         <HeaderDesktop />
          <HeaderMobile openDrawer={() => setOpenDrawer(true)} />
          <AnimatePresence>
             {openDrawer && <MobileMenuNav closeDrawer={() => setOpenDrawer(false)} />}
@@ -40,9 +38,7 @@ export const Layout:React.FC<{
    )
 }
 
-const HeaderDesktop:FC<{location: Location}> = ({
-   location
-}) => {
+const HeaderDesktop:FC = () => {
    const contact = useContactInfo()
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
@@ -58,7 +54,6 @@ const HeaderDesktop:FC<{location: Location}> = ({
                      <HeaderDesktopDropdown 
                         link={link} 
                         key={link.id}
-                        location={location}
                      />
                   ) : (
                      <Link 
@@ -81,9 +76,8 @@ const HeaderDesktop:FC<{location: Location}> = ({
 }
 
 const HeaderDesktopDropdown:FC<{
-   link: MenuItem,
-   location: Location
-}> = ({ link, location }) => {
+   link: MenuItem
+}> = ({ link }) => {
    const isActive = location.pathname.includes(link.url!)
    
    return (

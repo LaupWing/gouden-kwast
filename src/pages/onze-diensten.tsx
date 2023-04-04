@@ -7,9 +7,9 @@ const OnzeDiensten: React.FC<PageProps<{
    allWpPage: {
       nodes: Page[]
    }
-}>> = ({ data, location }) => {
+}>> = ({ data }) => {
    return (
-      <Layout location={location}>
+      <Layout>
          <main className="flex-1 p-8 py-12 md:p-10 md:py-20 bg-slate-600">
             <h2 className="container mx-auto text-slate-100 text-3xl mb-4">Onze diensten</h2>
             <ServicesSection services={data.allWpPage.nodes} />

@@ -7,10 +7,10 @@ import "./page.scss"
 
 const OnzeDienstenDetail: React.FC<PageProps<{
    wpPage: Page
-}>> = ({ data, location }) => {
+}>> = ({ data }) => {
    
    return (
-      <Layout location={location}>
+      <Layout>
          <main className="flex-1 bg-slate-200">
             <div className="relative flex">
                <div className="absolute inset-0 bg-slate-200/40 z-50"/>

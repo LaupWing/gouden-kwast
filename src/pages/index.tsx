@@ -5,9 +5,9 @@ import { Layout, RecentWork } from "~/components"
 import Quotes from "~/components/Quotes"
 import RequestForm from "~/components/RequestForm"
 
-const IndexPage: React.FC<PageProps> = ({ location }) => {
+const IndexPage: React.FC<PageProps> = () => {
    return (
-      <Layout location={location}>
+      <Layout>
          <main className="flex-1">
             <Hero />
             <Quotes />
