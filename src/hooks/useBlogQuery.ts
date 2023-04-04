@@ -19,7 +19,7 @@ export const useBlogQuery = () => {
                   node {
                      localFile {
                         childImageSharp {
-                           gatsbyImageData(width: 720, placeholder: TRACED_SVG)
+                           gatsbyImageData(width: 720, placeholder: DOMINANT_COLOR)
                         }
                      }
                      slug

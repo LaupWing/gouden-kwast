@@ -42,13 +42,13 @@ const DynamicCarousel = ({
    cardLength: number,
    className?: string
 }) => {
-   const parts = Math.ceil(data.length / cardLength)
+   const blogs = useBlogQuery()
+   const parts = Math.ceil(blogs.length / cardLength)
    const styles = clsx(
       "grid gap-4 gap-y-10",
       cardLength === 2 && "grid-cols-2", 
       cardLength === 3 && "grid-cols-3", 
    )
-   const blogs = useBlogQuery()
    
    return (
       <Carousel className={className} showThumbs={false} showStatus={false}>

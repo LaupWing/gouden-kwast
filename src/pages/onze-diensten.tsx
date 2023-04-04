@@ -32,7 +32,7 @@ export const pageQuery = graphql`
             id
             featuredImage {
                node {
-                  gatsbyImage(placeholder: TRACED_SVG, width: 720)
+                  gatsbyImage(placeholder: DOMINANT_COLOR, width: 720)
                }
             }
             title
