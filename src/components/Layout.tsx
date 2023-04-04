@@ -20,8 +20,7 @@ import clsx from "clsx"
 import { useContactInfo } from "~/hooks/useContactInfo"
 
 export const Layout:React.FC<{
-   children: React.ReactNode,
-   location: unknown
+   children: React.ReactNode
 }> = ({
    children,
 }) =>{
