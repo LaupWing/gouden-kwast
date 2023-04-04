@@ -20,14 +20,19 @@ export const ProjectCard:FC<{
                // @ts-ignore
                image={getImage(project.featuredImage?.node.localFile.childImageSharp.gatsbyImageData)!}
                alt={project.title!}
-               className="w-full object-cover max-h-60 h-[30vh]"
+               className="w-full h-full object-cover"
             />
             <div className="bottom-1 left-1 bg-slate-50 absolute max-w-[80%] text-slate-800 px-4 py-2 font-bold">
                <h2 className="text-lg leading-5">{project.title!}</h2>
                <p className="text-xs text-slate-400 mt-1">{project.date!}</p>
             </div>
          </div>
-         <p className="mt-1 text-slate-50 mb-4 text-sm">{project.excerpt!}</p>
+         <div 
+            className="mt-1 text-slate-50 mb-4 text-sm"
+            dangerouslySetInnerHTML={{
+               __html: project.excerpt!
+            }}
+         />
          <button className="btn-primary mt-auto mr-auto">Lees meer</button>
       </div>
    )

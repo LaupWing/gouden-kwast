@@ -4,7 +4,7 @@ import { PostConnection } from "~/generated/graphql"
 export const useBlogQuery = () => {
    const data = useStaticQuery(graphql`
       query {
-         allWpPost(sort: {date: ASC}) {
+         allWpPost(sort: {date: DESC}) {
             nodes {
                excerpt
                title
@@ -14,6 +14,7 @@ export const useBlogQuery = () => {
                   }
                }
                content
+               date(formatString: "YYYY-MM-DD")
                featuredImage {
                   node {
                      localFile {
@@ -22,7 +23,6 @@ export const useBlogQuery = () => {
                         }
                      }
                      slug
-                     date(formatString: "YYYY MM DD")
                   }
                }
             }
