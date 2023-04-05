@@ -10,6 +10,7 @@ export const useBlogQuery = () => {
                title
                tags {
                   nodes {
+                     id
                      name
                   }
                }

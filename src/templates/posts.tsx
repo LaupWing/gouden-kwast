@@ -2,7 +2,8 @@ import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
 import { ContactBanner } from "~/components"
 
-const PostsPage: React.FC<PageProps> = () => {
+const PostsPage: React.FC<PageProps> = ({data}) => {
+   console.log(data)
    return (
       <>
          <main className="flex-1">
