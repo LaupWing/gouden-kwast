@@ -1,4 +1,4 @@
-import type { HeadFC, PageProps } from "gatsby"
+import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
 import { ContactBanner } from "~/components"
 
@@ -19,3 +19,11 @@ const PostsPage: React.FC<PageProps> = () => {
 export default PostsPage
 
 export const Head: HeadFC = () => <title>Portfolio</title>
+
+export const pageQuery = graphql`
+   query {
+      allWpPost {
+         totalCount
+      }
+   }
+`
