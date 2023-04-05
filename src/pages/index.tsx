@@ -1,7 +1,7 @@
 import type { HeadFC, PageProps } from "gatsby"
 import * as React from "react"
 import Hero from "~/components/Hero"
-import { ContactBanner, Layout, RecentWork } from "~/components"
+import { ContactBanner, RecentWork } from "~/components"
 import Quotes from "~/components/Quotes"
 import RequestForm from "~/components/RequestForm"
 

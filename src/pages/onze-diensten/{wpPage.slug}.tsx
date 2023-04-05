@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ContactBanner, Layout } from "~/components"
+import { ContactBanner } from "~/components"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Page } from "~/generated/graphql"
@@ -10,7 +10,7 @@ const OnzeDienstenDetail: React.FC<PageProps<{
 }>> = ({ data }) => {
    
    return (
-      <Layout>
+      <>
          <main className="flex-1 bg-slate-200">
             <div className="relative flex">
                <div className="absolute inset-0 bg-slate-200/40 z-50"/>
@@ -36,7 +36,7 @@ const OnzeDienstenDetail: React.FC<PageProps<{
             </section>
          </main>
          <ContactBanner />
-      </Layout>
+      </>
    )
 }
 export default OnzeDienstenDetail

@@ -1,19 +1,19 @@
 import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { ContactBanner, Layout } from "~/components"
+import { ContactBanner } from "~/components"
 
-const OnzeDienstenPage: React.FC<PageProps> = ({data}) => {
+const PortfolioPage: React.FC<PageProps> = ({data}) => {
    return (
-      <Layout>
+      <>
          <main className="flex-1 pt-10">
             Tessst
          </main>
          <ContactBanner />
-      </Layout>
+      </>
    )
 }
 
-export default OnzeDienstenPage
+export default PortfolioPage
 
 export const Head: HeadFC = () => <title>Onze diensten</title>
 
