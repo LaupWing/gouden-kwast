@@ -1,4 +1,4 @@
-export { ProjectCard } from "./ProjectCard"
+export { BlogCard } from "./BlogCard"
 export { Layout } from "./Layout"
 export { Hero } from "./Hero"
 export { RecentWork } from "./RecentWork"

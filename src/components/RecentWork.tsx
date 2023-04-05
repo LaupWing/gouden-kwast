@@ -1,7 +1,7 @@
 import * as React from "react"
 import clsx from "clsx"
 import { Carousel } from "react-responsive-carousel"
-import { ProjectCard } from "./ProjectCard"
+import { BlogCard } from "./BlogCard"
 import { useBlogQuery } from "~/hooks/useBlogQuery"
 
 export const RecentWork = () => {
@@ -23,8 +23,8 @@ const CarouselSmall = () => {
    return (
       <Carousel className="md:hidden" showThumbs={false} showStatus={false}>
          {blogs.map((x, i) => (
-            <ProjectCard
-               project={x}
+            <BlogCard
+               blog={x}
                key={i}
             />
          ))}
@@ -57,9 +57,9 @@ const DynamicCarousel = ({
                {blogs
                   .filter((_, i2) => (i2 < ((i + 1) * cardLength)) && (i2 >= ((i) * cardLength)))
                   .map((x, i2) => (
-                     <ProjectCard
+                     <BlogCard
                         key={i2}
-                        project={x}
+                        blog={x}
                      />
                ))}
             </div>
