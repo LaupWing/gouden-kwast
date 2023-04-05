@@ -1,5 +1,6 @@
 import { GatsbyNode } from "gatsby"
 import { RootQuery } from "./src/generated/graphql"
+import path from "path"
 
 export const createPages: GatsbyNode["createPages"] = async ({
    actions,
@@ -30,10 +31,17 @@ export const createPages: GatsbyNode["createPages"] = async ({
    const postsPerPage = resultBlogs.data!.wp!.readingSettings!.postsPerPage!
    const numberOfPosts = resultBlogs.data!.allWpPost!.totalCount
    const numberOfPages = Math.ceil(numberOfPosts / postsPerPage) 
+   const blogPostTemplate = path.resolve("./src/templates/posts.tsx")
+
    Array.from({
       length: numberOfPages
    }).forEach((_,i:number)=>{
-      console.log(i)
+      actions.createPage({
+         path: i === 0 
+            ? "/portfolio"
+            : `/portfolio/${i + 1}`,
+         component: blogPostTemplate
+      })
    })
    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 }
