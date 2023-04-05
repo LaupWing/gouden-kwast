@@ -19,7 +19,7 @@ import { getMainMenu, parsedMenu } from "~/lib/utils"
 import clsx from "clsx"
 import { useContactInfo } from "~/hooks/useContactInfo"
 
-export const Layout:React.FC<{
+const Layout:React.FC<{
    children: React.ReactNode
 }> = ({
    children
@@ -37,6 +37,8 @@ export const Layout:React.FC<{
       </div>
    )
 }
+
+export default Layout
 
 const HeaderDesktop:FC = () => {
    const contact = useContactInfo()

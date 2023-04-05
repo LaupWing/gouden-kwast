@@ -7,7 +7,7 @@ import RequestForm from "~/components/RequestForm"
 
 const IndexPage: React.FC<PageProps> = () => {
    return (
-      <Layout>
+      <>
          <main className="flex-1">
             <Hero />
             <Quotes />
@@ -23,7 +23,7 @@ const IndexPage: React.FC<PageProps> = () => {
             </section>
          </main>
          <ContactBanner />
-      </Layout>
+      </>
    )
 }
 
