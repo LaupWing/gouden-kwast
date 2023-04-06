@@ -60,7 +60,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
             limit: postsPerPage,
             skip: i * postsPerPage,
             numberOfPages,
-            currentPage: i + 1
+            currentPage: i + 1,
+            categories: resultBlogs.data?.allWpCategory.edges
          }
       })
    })
