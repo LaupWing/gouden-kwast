@@ -8,12 +8,6 @@ export const useBlogQuery = () => {
             nodes {
                excerpt
                title
-               tags {
-                  nodes {
-                     id
-                     name
-                  }
-               }
                content
                date(formatString: "YYYY-MM-DD")
                featuredImage {

@@ -10,14 +10,14 @@ export const BlogCard:FC<{
       <div className="flex flex-col text-left">
          <div className="aspect-[4/3] relative">
             <div className="absolute top-2 left-2 z-50 flex gap-3 tracking-wider font-bold uppercase text-sm">
-               {blog.tags?.nodes.map((tag: Tag) => (
+               {/* {blog.tags?.nodes.map((tag: Tag) => (
                   <div 
                      className="px-2 py-0.5 rounded bg-slate-700 text-yellow-400"
                      key={tag.id}
                   >
                      {tag.name}
                   </div>
-               ))}
+               ))} */}
             </div>
             <GatsbyImage
                // @ts-ignore
