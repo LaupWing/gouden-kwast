@@ -67,7 +67,27 @@ export const createPages: GatsbyNode["createPages"] = async ({
    })
    resultBlogs.data?.allWpCategory.edges.map(category =>{
       const numberOfCategoryPosts = category.node.count!
-      const numPages = Math.ceil(numberOfPosts / postsPerPage)
+      const numberOfCategoryPages = Math.ceil(numberOfCategoryPosts / postsPerPage)
+
+      if(numberOfCategoryPosts > 0){
+         Array.from({
+            length: numberOfCategoryPages
+         }).forEach((_, i) => {
+            actions.createPage({
+               path: i === 0 
+                  ? `/portfolio${category.node.uri!.split('/.')[1]}`
+                  : `/portfolio${category.node.uri!.split('/.')[1]}${i + 1}`,
+               component: blogPostTemplate,
+               context: {
+                  limit: postsPerPage,
+                  skip: i * postsPerPage,
+                  numberOfPages,
+                  currentPage: i + 1,
+                  categories: resultBlogs.data?.allWpCategory.edges,
+                  categoryUri: "/portfolio/"
+               }
+            })
+         })
+      }
    })
-   console.log()
 }
