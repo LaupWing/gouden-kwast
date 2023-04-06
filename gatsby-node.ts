@@ -46,6 +46,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
    const numberOfPosts = resultBlogs.data!.allWpPost!.totalCount
    const numberOfPages = Math.ceil(numberOfPosts / postsPerPage) 
    const blogPostTemplate = path.resolve("./src/templates/posts.tsx")
+   const categoryPostTemplate = path.resolve("./src/templates/categoryPosts.tsx")
 
    Array.from({
       length: numberOfPages
@@ -77,12 +78,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
                path: i === 0 
                   ? `/portfolio${category.node.uri!.split('/.')[1]}`
                   : `/portfolio${category.node.uri!.split('/.')[1]}${i + 1}`,
-               component: blogPostTemplate,
+               component: categoryPostTemplate,
                context: {
                   limit: postsPerPage,
                   skip: i * postsPerPage,
                   numberOfPages,
                   currentPage: i + 1,
+                  categoryId: category.node.id,
                   categories: resultBlogs.data?.allWpCategory.edges,
                   categoryUri: "/portfolio/"
                }
