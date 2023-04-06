@@ -23,7 +23,10 @@ export const Head: HeadFC = () => <title>Portfolio</title>
 
 export const pageQuery = graphql`
    query($skip: Int!, $limit: Int!){
-      allWpPost {
+      allWpPost(
+         skip: $skip
+         limit: $limit
+      ) {
          totalCount
       }
    }
