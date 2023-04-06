@@ -1,4 +1,4 @@
-import { HeadFC, PageProps, graphql } from "gatsby"
+import { HeadFC, Link, PageProps, graphql } from "gatsby"
 import * as React from "react"
 import { BlogCard, ContactBanner } from "~/components"
 import { CategoryConnectionEdge, PostConnection } from "~/generated/graphql"
@@ -27,6 +27,7 @@ const PostsPage: React.FC<PageProps<{
                   <Pagination 
                      currentPage={pageContext.currentPage}
                      numberOfPages={pageContext.numberOfPages}
+                     categoryUri={pageContext.categoryUri}
                   />
                </section>
                <ul className="bg-slate-50 rounded py-4 px-6">
@@ -55,15 +56,31 @@ const PostsPage: React.FC<PageProps<{
 const Pagination:React.FC<{
    currentPage: number
    numberOfPages: number
+   categoryUri: string
 }> = ({
    currentPage,
-   numberOfPages
+   numberOfPages,
+   categoryUri
 }) => {
    return (
       <div className="flex col-span-full gap-4 mt-14 items-center mx-auto">
-         <button className="btn-primary">Nieuwer</button>
+         <Link
+            to={`${categoryUri}${currentPage === 2 ? "" : currentPage -1}`}
+            className={currentPage > 1 
+               ? "opacity-100"
+               : "opacity-0 pointer-events-none"}
+         >
+            <button className="btn-primary">Nieuwer</button>
+         </Link>
          <span className="text-slate-50">{currentPage} / {numberOfPages}</span>
-         <button className="btn-primary">Ouder</button>
+         <Link
+            to={`${categoryUri}${currentPage + 1}`}
+            className={currentPage < numberOfPages 
+               ? "opacity-100"
+               : "opacity-0 pointer-events-none"}
+         >
+            <button className="btn-primary">Ouder</button>
+         </Link>
       </div>
    )
 }
