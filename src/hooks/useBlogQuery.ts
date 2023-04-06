@@ -10,6 +10,7 @@ export const useBlogQuery = () => {
                title
                content
                date(formatString: "YYYY-MM-DD")
+               slug
                featuredImage {
                   node {
                      localFile {
@@ -17,7 +18,6 @@ export const useBlogQuery = () => {
                            gatsbyImageData(width: 720, placeholder: DOMINANT_COLOR)
                         }
                      }
-                     slug
                   }
                }
             }

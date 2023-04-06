@@ -42,7 +42,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
       reporter.panicOnBuild("Something went wrong!", resultBlogs.errors)
    }
 
-   console.log(resultBlogs.data?.allWpCategory.edges)
    const postsPerPage = resultBlogs.data!.wp!.readingSettings!.postsPerPage!
    const numberOfPosts = resultBlogs.data!.allWpPost!.totalCount
    const numberOfPages = Math.ceil(numberOfPosts / postsPerPage) 
