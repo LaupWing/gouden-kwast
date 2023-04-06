@@ -9,8 +9,9 @@ const PostsPage: React.FC<PageProps<{
    console.log(data.allWpPost)
    return (
       <>
-         <main className="flex-1 bg-slate-600">
-            <section className="grid grid-cols-2 h-minus-nav">
+         <main className="flex-1 p-8 py-12 md:p-10 md:py-20 bg-slate-800">
+            <h2 className="container mx-auto text-slate-100 text-3xl mb-4">Portfolio</h2>
+            <section className="grid grid-cols-2 gap-10 container m-auto">
                {data.allWpPost.nodes.map(blog => (
                   <BlogCard 
                      blog={blog}
