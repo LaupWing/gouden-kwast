@@ -19,9 +19,19 @@ const PostsPage: React.FC<PageProps<{
                   />
                ))}
             </section>
+            <Pagination />
          </main>
          <ContactBanner />
       </>
+   )
+}
+
+const Pagination = () => {
+   return (
+      <div className="flex justify-between mt-14 items-center max-w-xs mx-auto">
+         <button className="btn-primary">Nieuwer</button>
+         <button className="btn-primary">Ouder</button>
+      </div>
    )
 }
 
