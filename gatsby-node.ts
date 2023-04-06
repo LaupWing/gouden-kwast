@@ -65,4 +65,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
          }
       })
    })
+   resultBlogs.data?.allWpCategory.edges.map(category =>{
+      const numberOfCategoryPosts = category.node.count!
+      const numPages = Math.ceil(numberOfPosts / postsPerPage)
+   })
+   console.log()
 }
