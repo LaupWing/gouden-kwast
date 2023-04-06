@@ -9,6 +9,7 @@ const PostsPage: React.FC<PageProps<{
    categories: CategoryConnectionEdge[]
    numberOfPages: number
    currentPage: number
+   categoryUri: string
 }>> = ({data, pageContext}) => {
    console.log(pageContext)
    return (
