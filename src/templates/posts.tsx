@@ -7,6 +7,8 @@ const PostsPage: React.FC<PageProps<{
    allWpPost: PostConnection
 }, {
    categories: CategoryConnectionEdge[]
+   numberOfPages: number
+   currentPage: number
 }>> = ({data, pageContext}) => {
    console.log(pageContext)
    return (
@@ -21,7 +23,10 @@ const PostsPage: React.FC<PageProps<{
                         key={blog.id}
                      />
                   ))}
-                  <Pagination />
+                  <Pagination 
+                     currentPage={pageContext.currentPage}
+                     numberOfPages={pageContext.numberOfPages}
+                  />
                </section>
                <ul className="bg-slate-50 rounded py-4 px-6">
                   <li className="uppercase font-bold text-xs tracking-wider text-slate-400">
@@ -46,10 +51,17 @@ const PostsPage: React.FC<PageProps<{
    )
 }
 
-const Pagination = () => {
+const Pagination:React.FC<{
+   currentPage: number
+   numberOfPages: number
+}> = ({
+   currentPage,
+   numberOfPages
+}) => {
    return (
       <div className="flex col-span-full gap-4 mt-14 items-center mx-auto">
          <button className="btn-primary">Nieuwer</button>
+         <span className="text-slate-50">{currentPage} / {numberOfPages}</span>
          <button className="btn-primary">Ouder</button>
       </div>
    )
