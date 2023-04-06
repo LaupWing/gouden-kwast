@@ -11,6 +11,12 @@ export const useBlogQuery = () => {
                content
                date(formatString: "YYYY-MM-DD")
                slug
+               categories {
+                  nodes {
+                     name
+                     id
+                  }
+               }
                featuredImage {
                   node {
                      localFile {

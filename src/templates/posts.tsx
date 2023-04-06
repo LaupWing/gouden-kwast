@@ -51,6 +51,12 @@ export const pageQuery = graphql`
             id
             content
             date(formatString: "YYYY-MM-DD")
+            categories {
+               nodes {
+                  name
+                  id
+               }
+            }
             slug
             featuredImage {
                node {
