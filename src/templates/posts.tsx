@@ -22,7 +22,7 @@ export default PostsPage
 export const Head: HeadFC = () => <title>Portfolio</title>
 
 export const pageQuery = graphql`
-   query {
+   query($skip: Int!, $limit: Int!){
       allWpPost {
          totalCount
       }

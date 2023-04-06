@@ -40,8 +40,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
          path: i === 0 
             ? "/portfolio"
             : `/portfolio/${i + 1}`,
-         component: blogPostTemplate
+         component: blogPostTemplate,
+         context: {
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numberOfPages,
+            currentPage: i + 1
+         }
       })
    })
-   console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 }
