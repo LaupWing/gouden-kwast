@@ -1,16 +1,22 @@
 import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { ContactBanner } from "~/components"
+import { BlogCard, ContactBanner } from "~/components"
+import { PostConnection } from "~/generated/graphql"
 
-const PostsPage: React.FC<PageProps> = ({data, pageContext}) => {
-   console.log(data)
-   console.log(pageContext)
+const PostsPage: React.FC<PageProps<{
+   allWpPost: PostConnection
+}>> = ({data, pageContext}) => {
+   console.log(data.allWpPost)
    return (
       <>
-         <main className="flex-1">
-            <section 
-               className="bg-slate-200 grid lg:grid-cols-2 h-minus-nav"
-            >
+         <main className="flex-1 bg-slate-600">
+            <section className="grid grid-cols-2 h-minus-nav">
+               {data.allWpPost.nodes.map(blog => (
+                  <BlogCard 
+                     blog={blog}
+                     key={blog.id}
+                  />
+               ))}
             </section>
          </main>
          <ContactBanner />
@@ -28,7 +34,23 @@ export const pageQuery = graphql`
          skip: $skip
          limit: $limit
       ) {
-         totalCount
+         nodes {
+            excerpt
+            title
+            id
+            content
+            date(formatString: "YYYY-MM-DD")
+            slug
+            featuredImage {
+               node {
+                  localFile {
+                     childImageSharp {
+                        gatsbyImageData(width: 720, placeholder: DOMINANT_COLOR)
+                     }
+                  }
+               }
+            }
+         }
       }
    }
 `
