@@ -63,6 +63,7 @@ const HeaderDesktop:FC = () => {
                         className="px-4 flex items-center tracking-wider"
                         to={link.url!}
                         activeClassName="bg-black/10"
+                        partiallyActive={link.url !== "/"}
                         key={link.id}
                      >
                         { link.label }
@@ -241,6 +242,7 @@ const MobileMenuNavLink:FC<{
                className={"flex items-center tracking-wider"}
                to={link.url!}
                activeClassName="text-yellow-500"
+               partiallyActive={link.url !== "/"}
             >
                { link.label }
             </Link>

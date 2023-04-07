@@ -13,11 +13,19 @@ export const CategoriesMenu:React.FC<{
             <h2>Categoriën</h2>
          </li>
          <div className="flex flex-col gap-2 my-4">
+            <Link 
+               to="/portfolio"
+               className="text-slate-500/50 hover:text-slate-500/80 duration-500"
+               activeClassName="!text-slate-500"
+            >
+               <li>Alle</li>
+            </Link>
             {categories.map(category => (
                <Link 
                   to={category.node.uri!}
                   className="text-slate-500/50 hover:text-slate-500/80 duration-500"
                   activeClassName="!text-slate-500"
+                  partiallyActive
                   key={category.node.id}
                >
                   <li
