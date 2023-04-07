@@ -1,7 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import * as React from "react"
 import type { FC } from "react"
-import { useEffect } from "react"
+import { useEffect, useId } from "react"
 import { Fragment } from "react"
 import { Menu, Transition } from "@headlessui/react"
 import { useState } from "react"
@@ -43,6 +43,19 @@ export default Layout
 
 const HeaderDesktop:FC = () => {
    const contact = useContactInfo()
+   const container = {
+      hidden: {},
+      show: {
+         transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.6,
+         },
+      },
+   }
+   const item = {
+      hidden: { scale: 0, y: "60%" },
+      show: { scale: 1, y: 0 },
+   }
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
@@ -51,7 +64,12 @@ const HeaderDesktop:FC = () => {
                <h1 className="flex flex-col font-display items-center leading-4">
                   <span>Gouden</span>  <span>Kwast</span></h1>
             </div>
-            <ul className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto">
+            <motion.ul 
+               className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto"
+               variants={container}
+               initial="hidden"
+               animate="show"
+            >
                {parsedMenu().map(link => (
                   link.childItems?.nodes.length! > 0 ? (
                      <HeaderDesktopDropdown 
@@ -59,21 +77,26 @@ const HeaderDesktop:FC = () => {
                         key={link.id}
                      />
                   ) : (
-                     <Link 
-                        className="px-4 flex items-center tracking-wider"
-                        to={link.url!}
-                        activeClassName="bg-black/10"
-                        partiallyActive={link.url !== "/"}
-                        key={link.id}
+                     <motion.li
+                        variants={item}
+                        className="flex"
                      >
-                        { link.label }
-                     </Link>
+                        <Link 
+                           to={link.url!}
+                           className="flex-1 tracking-wider items-center flex px-4"
+                           activeClassName="bg-black/10"
+                           partiallyActive={link.url !== "/"}
+                           key={link.id}
+                        >
+                           { link.label }
+                        </Link>
+                     </motion.li>
                   )
                ))}
                <div className="bg-yellow-400 tracking-wide flex items-center justify-center px-10 text-slate-600">
                   Bel: {contact.contactInformation?.phonenumber!}
                </div>
-            </ul>
+            </motion.ul>
          </nav>
       </header>
    )
@@ -86,55 +109,65 @@ const HeaderDesktopDropdown:FC<{
    useEffect(() => {
       setIsActive(window.location.pathname.includes(link.url!))
    }, [window.location.pathname])
-   
+   const item = {
+      hidden: { scale: 0, y: "60%" },
+      show: { scale: 1, y: 0 },
+   }
+   const id = useId()
    return (
-      <Menu 
-         as={"div"}
-         className="relative flex"
+      <motion.li
+         key={id}
+         variants={item}
+         className="flex"
       >
-         <div className={clsx(
-            "space-x-2 px-4 flex items-center",
-            isActive && "bg-black/10"
-         )}>
-            <Link 
-               className="flex items-center tracking-wider"
-               to={link.url!}
-               key={link.id}
-            >
-               { link.label }
-            </Link>
-            <Menu.Button>
-               <FiChevronDown size={20} />
-            </Menu.Button>
-         </div>
-         <Transition
-            as={Fragment}
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0 scale-95"
-            enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-65"
-            leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95"
+         <Menu 
+            as={"div"}
+            className="relative flex"
          >
-            <Menu.Items className={"absolute -bottom-1 shadow text-left transform translate-y-full flex flex-col bg-white w-full rounded divide-y"}>
-               {link.childItems?.nodes.map((x:MenuItem) => 
-                  <Menu.Item
-                     key={x.id}
-                  >
-                     <Link 
-                        to={x.url!}
-                        className="hover:bg-black/5"
-                        activeClassName="bg-black/10"
+            <div className={clsx(
+               "space-x-2 px-4 flex items-center",
+               isActive && "bg-black/10"
+            )}>
+               <Link 
+                  className="flex items-center tracking-wider"
+                  to={link.url!}
+                  key={link.id}
+               >
+                  { link.label }
+               </Link>
+               <Menu.Button>
+                  <FiChevronDown size={20} />
+               </Menu.Button>
+            </div>
+            <Transition
+               as={Fragment}
+               enter="transition ease-out duration-100"
+               enterFrom="transform opacity-0 scale-95"
+               enterTo="transform opacity-100 scale-100"
+               leave="transition ease-in duration-65"
+               leaveFrom="transform opacity-100 scale-100"
+               leaveTo="transform opacity-0 scale-95"
+            >
+               <Menu.Items className={"absolute -bottom-1 shadow text-left transform translate-y-full flex flex-col bg-white w-full rounded divide-y"}>
+                  {link.childItems?.nodes.map((x:MenuItem) => 
+                     <Menu.Item
+                        key={x.id}
                      >
-                        <button className="w-full text-left px-4 py-2">
-                           {x.label}
-                        </button>
-                     </Link>
-                  </Menu.Item>
-               )}
-            </Menu.Items>
-         </Transition>
-      </Menu>
+                        <Link 
+                           to={x.url!}
+                           className="hover:bg-black/5"
+                           activeClassName="bg-black/10"
+                        >
+                           <button className="w-full text-left px-4 py-2">
+                              {x.label}
+                           </button>
+                        </Link>
+                     </Menu.Item>
+                  )}
+               </Menu.Items>
+            </Transition>
+         </Menu>
+      </motion.li>
    )
 }
 
