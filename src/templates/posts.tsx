@@ -1,9 +1,9 @@
-import { HeadFC, Link, PageProps, graphql } from "gatsby"
+import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { BlogCard, CategoriesMenu, CategorySection, ContactBanner, Pagination } from "~/components"
+import { CategorySection } from "~/components"
 import { CategoryConnectionEdge, PostConnection } from "~/generated/graphql"
 
-const PostsPage: React.FC<PageProps<{
+const AllPostsTemplate: React.FC<PageProps<{
    allWpPost: PostConnection
 }, {
    categories: CategoryConnectionEdge[]
@@ -22,7 +22,7 @@ const PostsPage: React.FC<PageProps<{
    )
 }
 
-export default PostsPage
+export default AllPostsTemplate
 
 export const Head: HeadFC = () => <title>Portfolio</title>
 

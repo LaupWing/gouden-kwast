@@ -3,7 +3,7 @@ import * as React from "react"
 import { CategorySection } from "~/components"
 import { CategoryConnectionEdge, PostConnection } from "~/generated/graphql"
 
-const PostsPage: React.FC<PageProps<{
+const CategoryPostTemplate: React.FC<PageProps<{
    allWpPost: PostConnection
 }, {
    categories: CategoryConnectionEdge[]
@@ -22,7 +22,7 @@ const PostsPage: React.FC<PageProps<{
    )
 }
 
-export default PostsPage
+export default CategoryPostTemplate
 
 export const Head: HeadFC = () => <title>Portfolio</title>
 
