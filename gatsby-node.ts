@@ -66,7 +66,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
          }
       })
    })
-   resultBlogs.data?.allWpCategory.edges.map(category =>{
+   const removedUncategorized = resultBlogs.data?.allWpCategory.edges.filter(x =>
+      x.node.name !== "Uncategorized"
+   )
+   removedUncategorized!.map(category =>{
       const numberOfCategoryPosts = category.node.count!
       const numberOfCategoryPages = Math.ceil(numberOfCategoryPosts / postsPerPage)
 
@@ -85,7 +88,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
                   numberOfPages: numberOfCategoryPages,
                   currentPage: i + 1,
                   categoryId: category.node.id,
-                  categories: resultBlogs.data?.allWpCategory.edges,
+                  categories: removedUncategorized!,
                   categoryUri: "/portfolio"
                }
             })
