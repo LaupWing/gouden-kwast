@@ -1,6 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import * as React from "react"
 import type { FC } from "react"
+import { useEffect } from "react"
 import { Fragment } from "react"
 import { Menu, Transition } from "@headlessui/react"
 import { useState } from "react"
@@ -80,7 +81,10 @@ const HeaderDesktop:FC = () => {
 const HeaderDesktopDropdown:FC<{
    link: MenuItem
 }> = ({ link }) => {
-   const isActive = location.pathname.includes(link.url!)
+   const [isActive, setIsActive] = useState(false)
+   useEffect(() => {
+      setIsActive(window.location.pathname.includes(link.url!))
+   }, [window.location.pathname])
    
    return (
       <Menu 

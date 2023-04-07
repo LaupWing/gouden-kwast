@@ -20,6 +20,7 @@ export const CategoriesMenu:React.FC<{
                   to={categoryUri + category.node.uri!.split('/.')[1]}
                   className="text-slate-500/50 hover:text-slate-500/80 duration-500"
                   activeClassName="!text-slate-500"
+                  key={category.node.id}
                >
                   <li
                      className=""
