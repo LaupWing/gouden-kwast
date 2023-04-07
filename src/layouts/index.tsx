@@ -59,13 +59,24 @@ const HeaderDesktop:FC = () => {
    return (
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
-            <div className="w-44 h-28 bg-slate-600 text-yellow-400 flex flex-col items-center justify-center absolute top-0 left-0">
+            <motion.div 
+               className="w-44 h-28 bg-slate-600 text-yellow-400 flex flex-col items-center justify-center absolute top-0 left-0"
+               initial={{
+                  y: "-100%"
+               }}
+               animate={{
+                  y: "0",
+                  transition: {
+                     delay: 0.3 * (parsedMenu().length  + 1)
+                  }
+               }}
+            >
                <HiPaintBrush size={30} />
                <h1 className="flex flex-col font-display items-center leading-4">
                   <span>Gouden</span>  <span>Kwast</span></h1>
-            </div>
+            </motion.div>
             <motion.ul 
-               className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto"
+               className="uppercase overflow-hidden h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto"
                variants={container}
                initial="hidden"
                animate="show"
@@ -93,9 +104,20 @@ const HeaderDesktop:FC = () => {
                      </motion.li>
                   )
                ))}
-               <div className="bg-yellow-400 tracking-wide flex items-center justify-center px-10 text-slate-600">
+               <motion.div 
+                  className="bg-yellow-400 tracking-wide flex items-center justify-center px-10 text-slate-600"
+                  initial={{
+                     x: "100%"
+                  }}
+                  animate={{
+                     x: "0",
+                     transition: {
+                        delay: 0.3 * parsedMenu().length
+                     }
+                  }}
+               >
                   Bel: {contact.contactInformation?.phonenumber!}
-               </div>
+               </motion.div>
             </motion.ul>
          </nav>
       </header>
