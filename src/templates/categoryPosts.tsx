@@ -10,6 +10,7 @@ const PostsPage: React.FC<PageProps<{
    numberOfPages: number
    currentPage: number
    categoryUri: string
+   categorySlug: string
 }>> = ({data, pageContext}) => {
    console.log(pageContext)
    return (

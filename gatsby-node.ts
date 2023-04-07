@@ -62,7 +62,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             numberOfPages,
             currentPage: i + 1,
             categories: resultBlogs.data?.allWpCategory.edges,
-            categoryUri: "/portfolio"
+            categoryUri: "/portfolio/"
          }
       })
    })
@@ -77,10 +77,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
          Array.from({
             length: numberOfCategoryPages
          }).forEach((_, i) => {
+            const cleanCategoryUri = category.node.uri!.split('/.')[1] 
             actions.createPage({
                path: i === 0 
-                  ? `/portfolio${category.node.uri!.split('/.')[1]}`
-                  : `/portfolio${category.node.uri!.split('/.')[1]}${i + 1}`,
+                  ? `/portfolio${cleanCategoryUri}`
+                  : `/portfolio${cleanCategoryUri}${i + 1}`,
                component: categoryPostTemplate,
                context: {
                   limit: postsPerPage,
@@ -89,7 +90,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
                   currentPage: i + 1,
                   categoryId: category.node.id,
                   categories: removedUncategorized!,
-                  categoryUri: "/portfolio"
+                  categoryUri: "/portfolio" + cleanCategoryUri
                }
             })
          })
