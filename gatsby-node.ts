@@ -62,7 +62,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             numberOfPages,
             currentPage: i + 1,
             categories: resultBlogs.data?.allWpCategory.edges,
-            categoryUri: "/portfolio/"
+            categoryUri: "/portfolio"
          }
       })
    })
@@ -86,7 +86,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
                   currentPage: i + 1,
                   categoryId: category.node.id,
                   categories: resultBlogs.data?.allWpCategory.edges,
-                  categoryUri: "/portfolio/"
+                  categoryUri: "/portfolio"
                }
             })
          })

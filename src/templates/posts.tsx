@@ -37,7 +37,7 @@ const PostsPage: React.FC<PageProps<{
                   <div className="flex flex-col gap-2 mt-2">
                      {pageContext.categories.map(category => (
                         <Link 
-                           to={category.node.uri!}
+                           to={pageContext.categoryUri + category.node.uri!}
                            activeClassName="text-yellow-400"
                         >
                            <li
