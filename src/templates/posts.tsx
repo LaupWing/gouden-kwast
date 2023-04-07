@@ -1,6 +1,6 @@
 import { HeadFC, Link, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { BlogCard, ContactBanner, Pagination } from "~/components"
+import { BlogCard, CategoriesMenu, ContactBanner, Pagination } from "~/components"
 import { CategoryConnectionEdge, PostConnection } from "~/generated/graphql"
 
 const PostsPage: React.FC<PageProps<{
@@ -30,28 +30,11 @@ const PostsPage: React.FC<PageProps<{
                      categoryUri={pageContext.categoryUri}
                   />
                </section>
-               <ul className="bg-slate-50 rounded py-4 px-6">
-                  <li className="uppercase font-bold text-xs tracking-wider text-slate-400">
-                     <h2>Categoriën</h2>
-                  </li>
-                  <div className="flex flex-col gap-2 mt-2">
-                     {pageContext.categories.map(category => (
-                        <Link 
-                           to={pageContext.categoryUri + category.node.uri!}
-                           activeClassName="text-yellow-400"
-                        >
-                           <li
-                              className=""
-                              key={category.node.id}
-                           >
-                              {category.node.name}
-                           </li>
-                        </Link>
-                     ))}
-                  </div>
-               </ul>
+               <CategoriesMenu 
+                  categories={pageContext.categories}
+                  categoryUri={pageContext.categoryUri}
+               />
             </div>
-            
          </main>
          <ContactBanner />
       </>

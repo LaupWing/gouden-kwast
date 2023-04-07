@@ -10,15 +10,16 @@ export const CategoriesMenu:React.FC<{
    categoryUri
 }) => {
    return (
-      <ul className="bg-slate-50 rounded py-4 px-6">
-         <li className="uppercase font-bold text-xs tracking-wider text-slate-400">
+      <ul className="bg-slate-50 rounded py-4 px-8">
+         <li className="uppercase font-bold text-xs tracking-widest text-slate-400">
             <h2>Categoriën</h2>
          </li>
-         <div className="flex flex-col gap-2 mt-2">
+         <div className="flex flex-col gap-2 my-4">
             {categories.map(category => (
                <Link 
-                  to={categoryUri + category.node.uri!}
-                  activeClassName="text-yellow-400"
+                  to={categoryUri + category.node.uri!.split('/.')[1]}
+                  className="text-slate-500/50 hover:text-slate-500/80 duration-500"
+                  activeClassName="!text-slate-500"
                >
                   <li
                      className=""
