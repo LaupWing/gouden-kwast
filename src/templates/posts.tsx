@@ -36,12 +36,17 @@ const PostsPage: React.FC<PageProps<{
                   </li>
                   <div className="flex flex-col gap-2 mt-2">
                      {pageContext.categories.map(category => (
-                        <li
-                           className=""
-                           key={category.node.id}
+                        <Link 
+                           to={category.node.uri!}
+                           activeClassName="text-yellow-400"
                         >
-                           {category.node.name}
-                        </li>
+                           <li
+                              className=""
+                              key={category.node.id}
+                           >
+                              {category.node.name}
+                           </li>
+                        </Link>
                      ))}
                   </div>
                </ul>
