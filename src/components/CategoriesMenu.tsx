@@ -4,10 +4,8 @@ import { Link } from "gatsby"
 
 export const CategoriesMenu:React.FC<{
    categories:  CategoryConnectionEdge[]
-   categoryUri: string
 }> = ({
-   categories,
-   categoryUri
+   categories
 }) => {
    return (
       <ul className="bg-slate-50 rounded py-4 px-8">
@@ -17,7 +15,7 @@ export const CategoriesMenu:React.FC<{
          <div className="flex flex-col gap-2 my-4">
             {categories.map(category => (
                <Link 
-                  to={categoryUri + category.node.uri!.split('/.')[1]}
+                  to={category.node.uri!}
                   className="text-slate-500/50 hover:text-slate-500/80 duration-500"
                   activeClassName="!text-slate-500"
                   key={category.node.id}

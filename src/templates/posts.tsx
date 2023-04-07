@@ -32,7 +32,6 @@ const PostsPage: React.FC<PageProps<{
                </section>
                <CategoriesMenu 
                   categories={pageContext.categories}
-                  categoryUri={pageContext.categoryUri}
                />
             </div>
          </main>
