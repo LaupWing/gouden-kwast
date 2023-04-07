@@ -12,7 +12,6 @@ const PostsPage: React.FC<PageProps<{
    categoryUri: string
    categorySlug: string
 }>> = ({data, pageContext}) => {
-   console.log(pageContext)
    return (
       <>
          <main className="flex-1 p-8 py-12 md:p-10 md:py-20 bg-slate-800">
