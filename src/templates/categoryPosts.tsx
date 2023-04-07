@@ -1,7 +1,8 @@
-import { HeadFC, Link, PageProps, graphql } from "gatsby"
+import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
 import { BlogCard, CategoriesMenu, ContactBanner, Pagination } from "~/components"
 import { CategoryConnectionEdge, PostConnection } from "~/generated/graphql"
+import { motion } from "framer-motion"
 
 const PostsPage: React.FC<PageProps<{
    allWpPost: PostConnection
@@ -12,27 +13,56 @@ const PostsPage: React.FC<PageProps<{
    categoryUri: string
    categorySlug: string
 }>> = ({data, pageContext}) => {
+   const container = {
+      hidden: {},
+      show: {
+         transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.6,
+         },
+      },
+   }
+   const item = {
+      hidden: { 
+         opacity: 0,
+         y: 20
+      },
+      show: { 
+         opacity: 1,
+         y: 0 
+      },
+   }
    return (
       <>
          <main className="flex-1 p-8 py-12 md:p-10 md:py-20 bg-slate-800">
             <h2 className="container mx-auto text-slate-100 text-3xl mb-4">Portfolio</h2>
             <div className="flex items-start gap-4 container mx-auto">
-               <section className="grid grid-cols-2 gap-6 container m-auto">
+               <motion.section 
+                  className="grid grid-cols-2 gap-6 container m-auto"
+                  variants={container}
+                  initial="hidden"
+                  animate="show"
+               >
                   {data.allWpPost.nodes.map(blog => (
-                     <BlogCard 
-                        blog={blog}
+                     <motion.div
+                        variants={item}
                         key={blog.id}
-                     />
+                     >
+                        <BlogCard 
+                           blog={blog}
+                        />
+                     </motion.div>
                   ))}
                   <Pagination
                      currentPage={pageContext.currentPage}
                      numberOfPages={pageContext.numberOfPages}
                      categoryUri={pageContext.categoryUri}
                   />
-               </section>
+               </motion.section>
+               {/* <motiioni
                <CategoriesMenu
                   categories={pageContext.categories}
-               />
+               /> */}
             </div>
             
          </main>
