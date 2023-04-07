@@ -1,17 +1,24 @@
-import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { BlogCard, CategoriesMenu, ContactBanner, Pagination } from "~/components"
 import { CategoryConnectionEdge, PostConnection } from "~/generated/graphql"
 import { motion } from "framer-motion"
+import { Pagination } from "./Pagination"
+import { BlogCard } from "./BlogCard"
+import { CategoriesMenu } from "./CategoriesMenu"
+import { ContactBanner } from "./ContactBanner"
 
-const PostsPage: React.FC<PageProps<{
-   allWpPost: PostConnection
-}, {
+export const PostsPage: React.FC<{
+   posts: PostConnection
    categories: CategoryConnectionEdge[]
    numberOfPages: number
    currentPage: number
    categoryUri: string
-}>> = ({data, pageContext}) => {
+}> = ({
+   categories,
+   posts,
+   numberOfPages,
+   currentPage,
+   categoryUri
+}) => {
    const container = {
       hidden: {},
       show: {
@@ -42,24 +49,24 @@ const PostsPage: React.FC<PageProps<{
                   initial="hidden"
                   animate="show"
                >
-                  {data.allWpPost.nodes.map(blog => (
+                  {posts.nodes.map(blog => (
                      <motion.div
                         variants={item}
                         key={blog.id}
                      >
-                        <BlogCard 
+                        <BlogCard
                            blog={blog}
                         />
                      </motion.div>
                   ))}
                   <Pagination
-                     currentPage={pageContext.currentPage}
-                     numberOfPages={pageContext.numberOfPages}
-                     categoryUri={pageContext.categoryUri}
+                     currentPage={currentPage}
+                     numberOfPages={numberOfPages}
+                     categoryUri={categoryUri}
                   />
                </motion.section>
                <CategoriesMenu
-                  categories={pageContext.categories}
+                  categories={categories}
                />
             </div>
             
@@ -68,41 +75,3 @@ const PostsPage: React.FC<PageProps<{
       </>
    )
 }
-
-export default PostsPage
-
-export const Head: HeadFC = () => <title>Portfolio</title>
-
-export const pageQuery = graphql`
-   query($categoryId: String!, $skip: Int!, $limit: Int!){
-      allWpPost(
-         filter: { categories: { nodes: { elemMatch: { id: { eq: $categoryId } } } } }
-         skip: $skip
-         limit: $limit
-      ) {
-         nodes {
-            excerpt
-            title
-            id
-            content
-            date(formatString: "YYYY-MM-DD")
-            categories {
-               nodes {
-                  name
-                  id
-               }
-            }
-            slug
-            featuredImage {
-               node {
-                  localFile {
-                     childImageSharp {
-                        gatsbyImageData(width: 720, placeholder: DOMINANT_COLOR)
-                     }
-                  }
-               }
-            }
-         }
-      }
-   }
-`  
