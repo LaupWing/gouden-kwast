@@ -90,6 +90,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
                   categoryId: category.node.id,
                   categories: removedUncategorized,
                   categoryUri: category.node.uri!,
+                  categoryName: category.node.name!
                }
             })
          })

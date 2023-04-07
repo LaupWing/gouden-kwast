@@ -10,6 +10,7 @@ const CategoryPostTemplate: React.FC<PageProps<{
    numberOfPages: number
    currentPage: number
    categoryUri: string
+   categoryName: string
 }>> = ({data, pageContext}) => {
    return (
       <CategorySection 

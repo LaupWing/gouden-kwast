@@ -1,7 +1,7 @@
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
 import type { FC } from "react"
-import { Category, Post, Tag } from "~/generated/graphql"
+import { Category, Post } from "~/generated/graphql"
 
 export const BlogCard:FC<{
    blog: Post
