@@ -1,6 +1,6 @@
 import { HeadFC, PageProps, graphql } from "gatsby"
 import * as React from "react"
-import { BlogCard, CategoriesMenu, ContactBanner, Pagination } from "~/components"
+import { BlogCard, CategoriesMenu, CategorySection, ContactBanner, Pagination } from "~/components"
 import { CategoryConnectionEdge, PostConnection } from "~/generated/graphql"
 import { motion } from "framer-motion"
 
@@ -33,38 +33,13 @@ const PostsPage: React.FC<PageProps<{
    }
    return (
       <>
-         <main className="flex-1 p-8 py-12 md:p-10 md:py-20 bg-slate-800">
-            <h2 className="container mx-auto text-slate-100 text-3xl mb-4">Portfolio</h2>
-            <div className="flex items-start gap-4 container mx-auto overflow-hidden">
-               <motion.section 
-                  className="grid grid-cols-2 gap-6 container m-auto"
-                  variants={container}
-                  initial="hidden"
-                  animate="show"
-               >
-                  {data.allWpPost.nodes.map(blog => (
-                     <motion.div
-                        variants={item}
-                        key={blog.id}
-                     >
-                        <BlogCard 
-                           blog={blog}
-                        />
-                     </motion.div>
-                  ))}
-                  <Pagination
-                     currentPage={pageContext.currentPage}
-                     numberOfPages={pageContext.numberOfPages}
-                     categoryUri={pageContext.categoryUri}
-                  />
-               </motion.section>
-               <CategoriesMenu
-                  categories={pageContext.categories}
-               />
-            </div>
-            
-         </main>
-         <ContactBanner />
+         <CategorySection 
+            posts={data.allWpPost}
+            categories={pageContext.categories}
+            numberOfPages={pageContext.numberOfPages}
+            categoryUri={pageContext.categoryUri}
+            currentPage={pageContext.currentPage}
+         />
       </>
    )
 }

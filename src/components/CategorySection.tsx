@@ -6,7 +6,7 @@ import { BlogCard } from "./BlogCard"
 import { CategoriesMenu } from "./CategoriesMenu"
 import { ContactBanner } from "./ContactBanner"
 
-export const PostsPage: React.FC<{
+export const CategorySection: React.FC<{
    posts: PostConnection
    categories: CategoryConnectionEdge[]
    numberOfPages: number
