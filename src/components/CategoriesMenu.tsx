@@ -11,7 +11,7 @@ export const CategoriesMenu:React.FC<{
    return (
       <>
          <HiOutlineMenuAlt1 size={26} className="text-white" />
-         <ul className="bg-slate-50 hidden rounded py-4 px-8">
+         <ul className="bg-slate-50 w-60 hidden flex-shrink-0 rounded py-4 px-8">
             <li className="uppercase font-bold text-xs tracking-widest text-slate-400">
                <h2>Categoriën</h2>
             </li>
