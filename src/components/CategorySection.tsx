@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react"
 import { CategoryConnectionEdge, PostConnection } from "~/generated/graphql"
 import { motion } from "framer-motion"
 import { Pagination } from "./Pagination"
@@ -19,6 +20,7 @@ export const CategorySection: React.FC<{
    currentPage,
    categoryUri
 }) => {
+   const [showSideNav, setShowSideNav] = useState(false)
    const container = {
       hidden: {},
       show: {
