@@ -3,9 +3,8 @@ import { ContactBanner } from "~/components"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Page } from "~/generated/graphql"
-import "./page.scss"
 
-const OnzeDienstenDetail: React.FC<PageProps<{
+const PostDetailPage: React.FC<PageProps<{
    wpPage: Page
 }>> = ({ data }) => {
    
@@ -39,10 +38,10 @@ const OnzeDienstenDetail: React.FC<PageProps<{
       </>
    )
 }
-export default OnzeDienstenDetail
+export default PostDetailPage
 
 export const pageQuery = graphql`
-   query OnzeDienstenDetail($id: String!) {
+   query PostDetailQuery($id: String!) {
       wpPage(id: {eq: $id}) {
          content
          title
