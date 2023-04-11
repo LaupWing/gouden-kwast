@@ -270,6 +270,7 @@ const MobileMenuNav:FC<{
                   <MobileMenuNavLink
                      link={link}
                      key={link.id}
+                     closeDrawer={closeDrawer}
                   />
                ))}
             </motion.ul>
@@ -280,8 +281,10 @@ const MobileMenuNav:FC<{
 
 const MobileMenuNavLink:FC<{
    link: MenuItem
+   closeDrawer: () => void
 }> = ({
-   link
+   link,
+   closeDrawer
 }) => {
    const item = {
       hidden: { scale: 0 },
@@ -300,6 +303,7 @@ const MobileMenuNavLink:FC<{
                to={link.url!}
                activeClassName="text-yellow-500"
                partiallyActive={link.url !== "/"}
+               onClick={closeDrawer}
             >
                { link.label }
             </Link>
@@ -349,6 +353,7 @@ const MobileMenuNavLink:FC<{
                            to={link.url!}
                            key={link.id}
                            activeClassName="text-yellow-400"
+                           onClick={closeDrawer}
                         >
                            <li>
                               - { link.label }
