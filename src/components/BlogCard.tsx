@@ -13,7 +13,7 @@ export const BlogCard:FC<{
             <div className="absolute top-2 left-2 z-50 flex gap-3 tracking-wider font-bold uppercase text-sm flex-wrap">
                {blog.categories?.nodes.map((category: Category) => (
                   <div 
-                     className="px-3 py-1 rounded bg-slate-700/60 backdrop-blur text-yellow-400"
+                     className="px-3 py-1 text-xs md:text-base rounded bg-slate-700/60 backdrop-blur text-yellow-400"
                      key={category.id}
                   >
                      {category.name}
