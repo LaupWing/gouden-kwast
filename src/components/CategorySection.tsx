@@ -44,7 +44,7 @@ export const CategorySection: React.FC<{
             <h2 className="container mx-auto text-slate-100 text-3xl mb-4">Portfolio</h2>
             <div className="flex items-start gap-4 container mx-auto overflow-hidden">
                <motion.section 
-                  className="grid grid-cols-2 gap-6 container m-auto"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6 container m-auto"
                   variants={container}
                   initial="hidden"
                   animate="show"

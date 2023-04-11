@@ -8,7 +8,7 @@ export const CategoriesMenu:React.FC<{
    categories
 }) => {
    return (
-      <ul className="bg-slate-50 rounded py-4 px-8">
+      <ul className="bg-slate-50 hidden rounded py-4 px-8">
          <li className="uppercase font-bold text-xs tracking-widest text-slate-400">
             <h2>Categoriën</h2>
          </li>
