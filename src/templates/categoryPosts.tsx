@@ -12,6 +12,7 @@ const CategoryPostTemplate: React.FC<PageProps<{
    categoryUri: string
    categoryName: string
 }>> = ({data, pageContext}) => {
+   
    return (
       <CategorySection 
          posts={data.allWpPost}
@@ -39,6 +40,7 @@ export const pageQuery = graphql`
             title
             id
             content
+            uri
             date(formatString: "YYYY-MM-DD")
             categories {
                nodes {
