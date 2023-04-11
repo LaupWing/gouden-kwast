@@ -1,4 +1,5 @@
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 import * as React from "react"
 import type { FC } from "react"
 import { Category, Post } from "~/generated/graphql"
@@ -36,7 +37,9 @@ export const BlogCard:FC<{
                __html: blog.excerpt!
             }}
          />
-         <button className="btn-primary mt-auto mr-auto">Lees meer</button>
+         <Link to={`/portfolio/post/${blog.slug}`}>
+            <button className="btn-primary mt-auto mr-auto">Lees meer</button>
+         </Link>
       </div>
    )
 }
