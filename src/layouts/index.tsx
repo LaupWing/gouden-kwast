@@ -77,7 +77,7 @@ const HeaderDesktop:FC = () => {
                   <span>Gouden</span>  <span>Kwast</span></h1>
             </motion.div>
             <motion.ul 
-               className="uppercase overflow-hidden h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto"
+               className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto"
                variants={container}
                initial="hidden"
                animate="show"
@@ -92,6 +92,7 @@ const HeaderDesktop:FC = () => {
                      <motion.li
                         variants={item}
                         className="flex"
+                        key={link.id}
                      >
                         <Link 
                            to={link.url!}
@@ -108,10 +109,10 @@ const HeaderDesktop:FC = () => {
                <motion.div 
                   className="bg-yellow-400 tracking-wide flex items-center justify-center px-10 text-slate-600"
                   initial={{
-                     x: "100%"
+                     scaleY: 0
                   }}
                   animate={{
-                     x: "0",
+                     scaleY: 1,
                      transition: {
                         delay: 0.3 * parsedMenu().length
                      }
