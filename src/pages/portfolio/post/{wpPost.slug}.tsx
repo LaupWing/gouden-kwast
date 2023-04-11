@@ -45,6 +45,12 @@ export const pageQuery = graphql`
          content
          title
          id
+         categories {
+            nodes {
+               name
+               id
+            }
+         }
          featuredImage {
             node {
                gatsbyImage(placeholder: DOMINANT_COLOR, width: 720)
