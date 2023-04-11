@@ -19,6 +19,7 @@ import { MenuItem } from "~/generated/graphql"
 import { getMainMenu, parsedMenu } from "~/lib/utils"
 import clsx from "clsx"
 import { useContactInfo } from "~/hooks/useContactInfo"
+import "../styles/page.scss"
 
 const Layout:React.FC<{
    children: React.ReactNode
