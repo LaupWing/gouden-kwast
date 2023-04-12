@@ -69,6 +69,8 @@ export const CategorySection: React.FC<{
                </motion.section>
                <CategoriesMenu
                   categories={categories}
+                  closeSideNav={() => setShowSideNav(false)}
+                  showSideNav={showSideNav}
                />
             </div>
             
