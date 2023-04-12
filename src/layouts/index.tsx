@@ -214,8 +214,12 @@ const HeaderMobile:FC<{
             />
          </div>
          <div className=" text-yellow-400 self-stretch flex-1 flex items-center justify-center">
-            <HiPaintBrush size={30} />
-            <h1 className="flex flex-col font-display items-center leading-4"><span>Gouden</span>  <span>Kwast</span></h1>
+            <h1 className="w-40">
+               <StaticImage 
+                  src="../images/logo.png"
+                  alt="Logo"
+               />
+            </h1>
          </div>
          <div className="flex-1 flex justify-end">
             <Link to="/search">
@@ -258,6 +262,7 @@ const MobileMenuNav:FC<{
             x: "-100%"
          }}
       >
+         
          <header className="flex justify-between items-center">
             <span className="font-display font-bold text-xl">Menu</span>
             <IoClose 
@@ -281,6 +286,25 @@ const MobileMenuNav:FC<{
                ))}
             </motion.ul>
          </nav>
+         <motion.div 
+            className="w-40"
+            initial={{
+               y: "100%",
+               opacity: 0
+            }}
+            animate={{
+               y: "0",
+               opacity: 1,
+               transition: {
+                  delay: 1.6
+               }
+            }}
+         >
+            <StaticImage 
+               src="../images/logo.png"
+               alt="Logo"
+            />
+         </motion.div>
       </motion.div>
    )
 }
