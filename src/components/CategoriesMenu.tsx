@@ -74,7 +74,13 @@ const CategoriesMenuMobile:React.FC<{
    setShowSideNav
 }) => (
    <>
-      {!showSideNav && <HiOutlineMenuAlt1 size={26} className="text-white" />}
+      {!showSideNav && (
+         <HiOutlineMenuAlt1 
+            size={26} 
+            className="text-white" 
+            onClick={() => setShowSideNav(true)}
+         />
+      )}
       {showSideNav && (
          <ul className="bg-slate-50 flex w-60 md:hidden flex-col flex-shrink-0 rounded py-4 px-8 absolute right-0">
             <li className="uppercase font-bold text-xs tracking-widest text-slate-400">

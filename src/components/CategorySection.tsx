@@ -44,12 +44,18 @@ export const CategorySection: React.FC<{
       <>
          <main className="flex-1 p-8 py-12 md:p-10 md:py-20 bg-slate-800">
             <h2 className="container mx-auto text-slate-100 text-3xl mb-4">Portfolio</h2>
-            <div className="flex items-start gap-2 md:gap-4 relative container mx-auto overflow-hidden">
+            <div 
+               className="flex items-start gap-2 md:gap-4 relative container mx-auto overflow-hidden"
+               
+            >
                <motion.section 
-                  className="grid grid-cols-1 md:grid-cols-2 gap-6 container m-auto"
+                  className="grid duration-300 grid-cols-1 md:grid-cols-2 gap-6 container m-auto"
                   variants={container}
                   initial="hidden"
                   animate="show"
+                  style={{
+                     translateX: showSideNav ? "-260px" : "0px"
+                  }}
                >
                   {posts.nodes.map(blog => (
                      <motion.div
