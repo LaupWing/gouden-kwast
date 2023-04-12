@@ -132,7 +132,7 @@ const HeaderDesktopDropdown:FC<{
    const [isActive, setIsActive] = useState(false)
    useEffect(() => {
       setIsActive(window.location.pathname.includes(link.url!))
-   }, [window.location.pathname])
+   }, [])
    const item = {
       hidden: { scale: 0, y: "60%" },
       show: { scale: 1, y: 0 },
@@ -214,7 +214,9 @@ const HeaderMobile:FC<{
             <h1 className="flex flex-col font-display items-center leading-4"><span>Gouden</span>  <span>Kwast</span></h1>
          </div>
          <div className="flex-1 flex justify-end">
-            <BsSearch size={24} />
+            <Link to="/search">
+               <BsSearch size={24} />
+            </Link>
          </div>
       </header>
    )
