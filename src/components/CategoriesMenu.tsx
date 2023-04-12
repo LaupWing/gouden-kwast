@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Dispatch, SetStateAction } from "react"
 import { CategoryConnectionEdge } from "~/generated/graphql"
 import { Link } from "gatsby"
 import { HiOutlineMenuAlt1 } from "react-icons/hi"
@@ -6,11 +7,11 @@ import { HiOutlineMenuAlt1 } from "react-icons/hi"
 export const CategoriesMenu:React.FC<{
    categories: CategoryConnectionEdge[]
    showSideNav: boolean
-   closeSideNav: () => void
+   setShowSideNav: Dispatch<SetStateAction<boolean>>
 }> = ({
    categories,
    showSideNav,
-   closeSideNav
+   setShowSideNav
 }) => {
    return (
       <>
@@ -19,7 +20,7 @@ export const CategoriesMenu:React.FC<{
          />
          <CategoriesMenuMobile 
             categories={categories} 
-            closeSideNav={closeSideNav}
+            setShowSideNav={setShowSideNav}
             showSideNav={showSideNav}
          />
       </>
@@ -66,11 +67,11 @@ const CategoriesMenuDesktop:React.FC<{
 const CategoriesMenuMobile:React.FC<{
    categories: CategoryConnectionEdge[]
    showSideNav: boolean
-   closeSideNav: () => void
+   setShowSideNav: Dispatch<SetStateAction<boolean>>
 }> = ({
    categories,
    showSideNav,
-   closeSideNav
+   setShowSideNav
 }) => (
    <>
       {!showSideNav && <HiOutlineMenuAlt1 size={26} className="text-white" />}
