@@ -20,6 +20,7 @@ import clsx from "clsx"
 import { useContactInfo } from "~/hooks/useContactInfo"
 import "../styles/page.scss"
 import { IconSearch } from "~/components"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Layout:React.FC<{
    children: React.ReactNode
@@ -61,9 +62,9 @@ const HeaderDesktop:FC = () => {
       <header className="w-full lg:flex flex-col hidden sticky top-0 bg-white z-[10000]">
          <nav className="flex items-start relative">
             <motion.div 
-               className="w-44 h-28 bg-slate-600 text-yellow-400 flex flex-col items-center justify-center absolute top-0 left-0"
+               className="w-56 my-auto flex flex-col items-center justify-center"
                initial={{
-                  y: "-100%"
+                  y: "-200%"
                }}
                animate={{
                   y: "0",
@@ -72,9 +73,12 @@ const HeaderDesktop:FC = () => {
                   }
                }}
             >
-               <HiPaintBrush size={30} />
-               <h1 className="flex flex-col font-display items-center leading-4">
-                  <span>Gouden</span>  <span>Kwast</span></h1>
+               <h1>
+                  <StaticImage 
+                     src="../images/logo.png"
+                     alt="Logo"
+                  />
+               </h1>
             </motion.div>
             <motion.ul 
                className="uppercase h-nav text-slate-600 font-semibold space-x-4 flex text-sm ml-auto"
