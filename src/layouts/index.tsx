@@ -13,13 +13,13 @@ import { FiChevronDown } from "react-icons/fi"
 import { MdEmail } from "react-icons/md"
 import { IoClose } from "react-icons/io5"
 import { BiMenuAltRight } from "react-icons/bi"
-import { BsSearch } from "react-icons/bs"
 import { motion, AnimatePresence } from "framer-motion"
 import { MenuItem } from "~/generated/graphql"
 import { getMainMenu, parsedMenu } from "~/lib/utils"
 import clsx from "clsx"
 import { useContactInfo } from "~/hooks/useContactInfo"
 import "../styles/page.scss"
+import { IconSearch } from "~/components"
 
 const Layout:React.FC<{
    children: React.ReactNode
@@ -215,7 +215,7 @@ const HeaderMobile:FC<{
          </div>
          <div className="flex-1 flex justify-end">
             <Link to="/search">
-               <BsSearch size={24} />
+               <IconSearch size={24} />
             </Link>
          </div>
       </header>
