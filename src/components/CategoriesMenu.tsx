@@ -99,7 +99,10 @@ const CategoriesMenuMobile:React.FC<{
             >
                <li className="uppercase font-bold text-xs flex justify-between items-center tracking-widest text-slate-400">
                   <h2>Categoriën</h2>
-                  <IconClose size={22} />
+                  <IconClose 
+                     size={22} 
+                     onClick={() => setShowSideNav(false)}
+                  />
                </li>
                <div className="flex flex-col gap-2 my-4">
                   <Link 
