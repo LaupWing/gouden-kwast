@@ -28,6 +28,40 @@ const Layout:React.FC<{
    children
 }) =>{
    const [openDrawer, setOpenDrawer] = useState(false)
+   const [initial, setInitial] = useState(false)
+
+   if(!initial){
+      return (
+         <motion.div 
+            className="inset-0 bg-white fixed flex items-center justify-center"
+            initial={{
+               opacity: 0
+            }}
+            animate={{
+               opacity: 1,
+               transition: {
+                  delay: 1
+               }
+            }}
+         >
+            <motion.div
+               animate={{
+                  rotateZ: 90,
+                  transition: {
+                     delay: 2
+                  }
+               }}
+            >
+               <StaticImage 
+                  className="transform -rotate-90"
+                  src="../images/logo.png"
+                  alt="Logo"
+               />
+            </motion.div>
+         </motion.div>
+      )
+   }
+
    return (
       <div className="w-screen h-screen flex flex-col fixed inset-0 overflow-y-auto">
          <HeaderDesktop />
